@@ -1,0 +1,176 @@
+---
+AEBBracketValue: '0'
+AESetting: Normal AE
+AFAreaHeights: 540 240 19 17512 17512 322 -14920 1328 19
+AFAreaMode: Single-point AF
+AFAreaWidths: 720 18 5528 11560 -19236 6872 0 -27704 25564
+AFAreaXPositions: 0 0 536 536 536 536 536 -27864 11668
+AFAreaYPositions: 0 0 536 536 536 536 19 455 322
+AFImageHeight: 3000
+AFImageWidth: 4000
+AFPoint: Face Detect
+AFPointsInFocus: '0'
+Aperture: '3.5'
+ApertureValue: '3.5'
+AspectRatio: 4:3
+AutoExposureBracketing: Off
+AutoISO: '400'
+AutoRotate: None
+BaseISO: '200'
+BitsPerSample: 8
+BulbDuration: 0
+CameraISO: Auto
+CameraType: Compact
+CanonExposureMode: Easy
+CanonFirmwareVersion: Firmware Version 1.01
+CanonFlashMode: Off
+CanonImageHeight: 3000
+CanonImageSize: Large
+CanonImageType: IMG:PowerShot S100 JPEG
+CanonImageWidth: 4000
+CanonModelID: PowerShot S100 (new)
+Categories: (none)
+CircleOfConfusion: 0.006 mm
+ColorComponents: 3
+ColorSpace: sRGB
+ComponentsConfiguration: Y, Cb, Cr, -
+CompressedBitsPerPixel: 3
+Compression: JPEG (old-style)
+ContinuousDrive: Single
+Contrast: Normal
+ControlMode: Camera Local Control
+CreateDate: 2012:03:10 10:16:30
+CroppedImageHeight: 3000
+CroppedImageWidth: 4000
+CustomRendered: Normal
+DateStampMode: Off
+DateTimeOriginal: 2012:03:10 10:16:30
+DigitalZoom: None
+DigitalZoomRatio: 1
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/e/input_root_a/S100/DCIM/100___03
+DriveMode: Single-frame Shooting
+EasyMode: Movie Snap
+EncodingProcess: Baseline DCT, Huffman coding
+ExifByteOrder: Little-endian (Intel, II)
+ExifImageHeight: 3000
+ExifImageWidth: 4000
+ExifToolVersion: '8.77'
+ExifVersion: '0230'
+ExposureCompensation: '0'
+ExposureCompensation (1): '0'
+ExposureMode: Auto
+ExposureTime: 1/30
+ExposureTime (1): 1/33
+FNumber: '3.5'
+FNumber (1): '3.6'
+FOV: 43.8 deg
+FileModifyDate: 2012:03:10 10:47:27-05:00
+FileName: IMG_0103.JPG
+FileNumber: 100-0103
+FilePermissions: rwxr-xr-x
+FileSize: 1733 kB
+FileSource: Digital Camera
+FileType: JPEG
+FirmwareRevision: 1.01 rev 1.00
+Flash: Off, Did not fire
+FlashBits: (none)
+FlashExposureComp: '0'
+FlashGuideNumber: 0
+FlashOutput: 0
+FlashpixVersion: '0100'
+FocalLength: 9.6 mm
+FocalLength35efl: '9.6 mm (35 mm equivalent: 44.8 mm)'
+FocalPlaneResolutionUnit: inches
+FocalPlaneXResolution: 13651.87713
+FocalPlaneYResolution: 13636.36364
+FocalUnits: 1000/mm
+FocusContinuous: Continuous
+FocusDistanceLower: 0 m
+FocusDistanceUpper: 1.09 m
+FocusMode: Single
+FocusRange: Auto
+HyperfocalDistance: 4.10 m
+ISO: 800
+ISO (1): '800'
+ImageDescription: '                               '
+ImageHeight: 3000
+ImageSize: 4000x3000
+ImageStabilization: Unknown (257)
+ImageUniqueID: 9b54a5edd9db8c204d06e89bc3bf4979
+ImageWidth: 4000
+InteropIndex: R98 - DCF basic file (sRGB)
+InteropVersion: '0100'
+Lens: 5.2 - 26.0 mm
+Lens35efl: '5.2 - 26.0 mm (35 mm equivalent: 24.2 - 120.9 mm)'
+LensID: Unknown 5-26mm
+LensType: Unknown (-1)
+LightValue: '5.5'
+LongFocal: 26 mm
+MIMEType: image/jpeg
+MacroMode: Normal
+Make: Canon
+ManualFlashOutput: n/a
+MaxAperture: '3.6'
+MaxApertureValue: '3.5'
+MeasuredEV: '6.97'
+MeteringMode: Evaluative
+MeteringMode (1): Multi-segment
+MinAperture: '8'
+Model: Canon PowerShot S100
+ModifyDate: 2012:03:10 10:16:30
+MyColorMode: Off
+NDFilter: Off
+NumAFPoints: 9
+OpticalZoomCode: 26
+Orientation: Horizontal (normal)
+OwnerName: ''
+PrimaryAFPoint: 0
+Quality: Fine
+Rating: '0'
+RecordMode: JPEG
+RelatedImageHeight: 3000
+RelatedImageWidth: 4000
+ResolutionUnit: inches
+ResolutionUnit (1): inches
+Saturation: Normal
+ScaleFactor35efl: '4.6'
+SceneCaptureType: Standard
+SelfTimer: Off
+SelfTimer2: 0
+SensingMethod: One-chip color area
+SensitivityType: Standard Output Sensitivity and Recommended Exposure Index
+SequenceNumber: 0
+Sharpness: 0
+ShootingMode: Movie Snap
+ShortFocal: 5.2 mm
+ShutterSpeed: 1/30
+ShutterSpeedValue: 1/30
+SlowShutter: Off
+SpotMeteringMode: Center
+TargetAperture: '3.6'
+TargetExposureTime: 1/30
+ThumbnailImage: !!perl/ref
+  =: "ÿØÿÛ\0\x84\0\t\x06\x06\b\x06\x05\t\b\a\b\n\t\t\v\r\x16\x0F\r\f\f\r\x1C\x13\x15\x10\x16!\x1D#\"!\x1C
+    \x1F$)4,$'1'\x1E\x1F-=-167:::\"*?D>8B3796\x01\t\t\t\f\n\f\x14\f\f\x14\x0F\n\n\n\x0F\x1A\x1A\n\n\x1A\x1AO\x1A\x1A\x1A\x1A\x1AOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOÿÀ\0\x11\b\0x\0 \x03\x01!\0\x02\x11\x01\x03\x11\x01ÿÄ\x01¢\0\0\x01\x05\x01\x01\x01\x01\x01\x01\0\0\0\0\0\0\0\0\x01\x02\x03\x04\x05\x06\a\b\t\n\v\x01\0\x03\x01\x01\x01\x01\x01\x01\x01\x01\x01\0\0\0\0\0\0\x01\x02\x03\x04\x05\x06\a\b\t\n\v\x10\0\x02\x01\x03\x03\x02\x04\x03\x05\x05\x04\x04\0\0\x01}\x01\x02\x03\0\x04\x11\x05\x12!1A\x06\x13Qa\a\"q\x142\x81\x91¡\b#B±Á\x15RÑð$3br\x82\t\n\x16\x17\x18\x19\x1A%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz\x83\x84\N\x86\x87\x88\x89\x8A\x92\x93\x94\x95\x96\x97\x98\x99\x9A¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùú\x11\0\x02\x01\x02\x04\x04\x03\x04\a\x05\x04\x04\0\x01\x02w\0\x01\x02\x03\x11\x04\x05!1\x06\x12AQ\aaq\x13\"2\x81\b\x14B\x91¡±Á\t#3Rð\x15brÑ\n\x16$4á%ñ\x17\x18\x19\x1A&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz\x82\x83\x84\N\x86\x87\x88\x89\x8A\x92\x93\x94\x95\x96\x97\x98\x99\x9A¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ\0\f\x03\x01\0\x02\x11\x03\x11\0?\0H\x86fZ´ü!>Æ³E0\x88a\x17éR\x81ò\x9Ab\bÇ\aëO\x02\x80\x15Ç+õ¥qòþ#ùÓ\x01àST|ÿ\0\N
+    $Å5ÇîÍ0\0>QP^\x8CG\x13\x7FvdýH\x1FÖ\x80,\x11LaÖ\x80\x11GËHE \x19\x8CH}Å!\x1F?ÔP\x05(\x06fü*Ì£÷Mþé¡\r\x8EAÀ©1ò\x9A\x04\x11\x8E*@)\x80®>dúÒ¸ù\x7F\x11üè\x01àST~ò\x80\x1F\x8Ak\x0F\x91¨\0Aò\x8F¥A~1hO÷]\eò`h\x02Æ)¤P\x03\x14uúÐE\0FÃ÷\x8BHÃæ_­\0S·\x1F½?J\x9EoõMIl6H£\x8A~>Zb\x161òÔ\x80P\x02¸ù\x93ëJÃ\x81õ\x1FÎ\x80\x1E\x054\x0FÞ~t\x01&)¬>Sô¦\x03c\x1F
+    ¨u\x01ÿ\0\x12ë\x83é\e\x1FÒ\x80,c\"\x9AE\01GÌh\"\x90\x118ÆÓïD\x83\x8FÄP\x05;Q\x96oÂ¦\x98~ïñ\x1FÎ\x92Øl\x91EHGÉLBÆ>QR\x01@\nãçO­9\x87Ëø\x8FçL\a\x81M\x03÷´\x80\x93m#/\x06\x98\x88â\\ ¦ÝG¾Òeþò0ý(\x01ÖçÌ¶\x8Dÿ\0¼\x80þ\x94â´\f\x88/Î~\x94â´\x01\f«ò\x1FcC®Pý(\x02\x95 à\x9Fz\x96aÂ\x8FV\x14\x90Þäª8§°ù(\x10èÇÊ*@)\x80²\x0FÞ%9\x87\x1F\x88þt\0ð) ~ö\x80$\x02\x82´\bd#äüiåsÅ\0WÓWþ%\x96ßõÉGéS²ñL\b¶â_Î\x9CV\x81\x91H¹V¤Q\x94\x1FJ@Q³\x1F/ãRL9O÷¿¥%°2U\x15#\x0F\x90P\x03£\x1F
+    úT\x8A)\x80²\x0FÞ'ãNaÇâ(\x01ÀS@ýðúÐ\"\\Q\x8Ei\x81\x1C\x03å#Þ¥Å\0WÓWý\x05\x17û¥\x97òb?¥XeùM\0BW÷£ëO+@\x11:ò~\x94È\x87îÅ\0Q´_Ý\x0FÆ\x9D(ùã\x1Eæ\x92Øl\x99E=ÇÊ(\x01Ñ\x8F\x90}*U\x1CÐ\x01
+    ýê~4æéø\x8Ab\x1E¢\x99\x8Fß\x0F­\0L\x05\x18æ\x80\x19\0ûßïT¸¦\x04\x1Ajÿ\0£È=&\x93ÿ\0C&¬ºph\x02»\x8F\x99O¸©\nÐ\x04n>aQF¿+\x0FC@\x14­\x17÷#éD\x83÷±ý\rJ\x192\x8A|\x83\n(\x01ñ\x8F\x94}*E\x1CÓ\0\x94~ö?Æ\x94\x8E?\x11@\x89\x14S1ûáõþ\x94\x010\x14¤r)\x81\x1C#\x0F
+    ÿ\0j§Q@\x10é©óÝ'÷g?ª©þµmÒ\x98\x8AR\x8F\x94\x1FASb\x90È¥\x1D*(ÇÎãß4\x01JÔ~ãþ\x02)¯þ¹\aû?Ö¤dËO\x9B\x80(\x01ë÷EH\x9DE1\x04ßë£üiÄqø\x8A\0zS\x0Fúñõ \tÀ¥aÒ\x98\x88âÿ\0](÷«\v\x8CÐ\x04zpÅÝèÇüµVÿ\0Ç\x14\x7FJ»\"c4ÀÍ\x99x#ê*p2 ú\x8A\0\x8EaòÔ(19÷\\Ð2\x8D¸Å»}\x05Fÿ\0ñò¿î\x0FëR\x04ËO¸è>\x94\0õà\n\x91~ð \x05\x9F\x89ãüiÍÓñ\x14\0ôëQ·úñõ¦\x04â\x9Cãå\x14ÄE\x17ü|È=\NYQ\x8E´\0\x9ArgU»_T\x8D¿ô!ý*ôÊrM\0eÎ0Íþñ©!\x19\N?Ý \x06Ê>CUÇ\x13/¸Å\0R\x8F\x8BvúÔ/ÿ\0\x1FGÙ\x05HÉ\x93¨§Ü\x1E\x9FJ\0xíR§Þ\x1FZ\0[\x83þ\x91\x1FÒ\x9Cz~\"\x98\x0F\x8F­Fÿ\0ëÇÔP\x04ëÖ¤\x7FõcëLD1\x8FôÇ÷QVqÅ\06À\x91­Ïïn\x9F£7øÖ\x84§&\x802îF$\x7F¨§[ó\nþ4ÀYFPÕCÃÆ}ñ@\x14Tÿ\0£\x9F­BÇý-ý\x80\x1F¥HÉãûÃëK9ä})\x01
+    5,gæ\x1FZ`-Áÿ\0H\x8FéN'\x8FÆ\x80$\x8F­G'úñõ\x14\x018ë\x9A\x95¿Õ\x8F­1\x10§ü\x7F}V­m8 \bc;5ÄíºÝ¿F_ñ«Ìù4À¡sÌ\x8FøQlq\x11ö&\x80\x1Cü\x8A§!ÀSèÂ\x86\x05\0\x7FqøÔLsw/Ô\x7F*\x91\x93F~aõ§N~aô \t\x01©#?0 \x05\x9Cÿ\0¤Gô§çåü¨\x02D<Ôr\x9CL>¢\x80,n©\ve?\x1Ab\"S\x8Bå÷Zµ\x9Ei\x81ZFÛ­Z\x9FX¤\x1Fª\x9FéWXà\n\x04S¸ûçýßëM¶<8ÿ\0j\x81\x921ª\x93\x7F«o­\0g\x83û¡õ¨sþ\x93)ÿ\0j¤dè~aõ¥\x9CüÃè(\x02@jHÏÌ>´\0³\x9C\\Gô§nù\x7F\x11@\x12#S&?½üE\0XÏ4üü\x94ÄDN/#>Õku0*Ý65\e#êÎ¿øé?Ò®\x968 EyùoÀÔVç\fãéLd¬sUåå\x1E\x81\x19\x9FòÍ~µ\n\x9FßIþñ¨(\x9D\x0FÌ(\x98üãð \tA©#?0 \x02vÿ\0H\x8FéN-Çâ(\x02Dni³\x1FÞgé@\x16\x01æ\x9F\x9F\x92\x98\x88\x9Câæ#VwS\x02­ëbæÉ½'ÿ\0Ù\x18UÒÜP\"\tNqøÔP\x9CJ}À¦\x04¤â¡\x93\x90ßJ\0ÿÙ"
+ThumbnailImageValidArea: 0 0 0 0
+ThumbnailLength: 2130
+ThumbnailOffset: '5632'
+UserComment: ''
+VRDOffset: 0
+ValidAFPoints: 1
+WhiteBalance: Auto
+WhiteBalance (1): Auto
+XResolution: 180
+XResolution (1): 180
+YCbCrPositioning: Co-sited
+YCbCrSubSampling: YCbCr4:2:2 (2 1)
+YResolution: 180
+YResolution (1): 180
+ZoomSourceWidth: 4000
+ZoomTargetWidth: 4000

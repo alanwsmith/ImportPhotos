@@ -1,0 +1,222 @@
+---
+AEBBracketValue: '0'
+AESetting: Normal AE
+AFAreaHeights: 18 0 0 0 0 0 0 0 0
+AFAreaMode: Single-point AF
+AFAreaWidths: 18 0 0 0 0 0 0 0 0
+AFAreaXPositions: 0 0 0 0 0 0 0 0 0
+AFAreaYPositions: 0 0 0 0 0 0 0 0 0
+AFImageHeight: 100
+AFImageWidth: 100
+AFPoint: Manual AF point selection
+AFPointsInFocus: '0'
+Aperture: '2.8'
+ApertureValue: '2.8'
+AutoExposureBracketing: Off
+AutoISO: '486'
+AutoRotate: Rotate 90 CW
+BaseISO: '100'
+BitsPerSample: 8 8 8
+BitsPerSample (1): 16 16 16
+BlackMaskBottomBorder: 2763
+BlackMaskLeftBorder: 3732
+BlackMaskRightBorder: 3735
+BlackMaskTopBorder: 28
+BlueBalance: 2.115034
+BulbDuration: 0
+CameraISO: Auto
+CameraTemperature: 21 C
+CameraType: Compact
+CanonExposureMode: Program AE
+CanonFirmwareVersion: Firmware Version 1.00
+CanonFlashMode: Off
+CanonImageHeight: 1200
+CanonImageSize: Unknown (-1)
+CanonImageType: IMG:High definition image
+CanonImageWidth: 1600
+CanonModelID: PowerShot S90
+Categories: (none)
+CircleOfConfusion: 0.007 mm
+ColorSpace: sRGB
+ColorTempAsShot: 5600
+ColorTempAuto: 5600
+ColorTempCloudy: 6180
+ColorTempDaylight: 5594
+ColorTempFlash: 7943
+ColorTempFluorescent: 5578
+ColorTempKelvin: 5594
+ColorTempMeasured: 5600
+ColorTempShade: 6180
+ColorTempTungsten: 3539
+ComponentsConfiguration: Y, Cb, Cr, -
+CompressedBitsPerPixel: 3
+Compression: JPEG (old-style)
+Compression (1): JPEG (old-style)
+Compression (2): JPEG (old-style)
+ContinuousDrive: Single
+Contrast: Normal
+ControlMode: Camera Local Control
+CreateDate: 2012:03:10 10:44:11
+CustomRendered: Normal
+DateStampMode: Off
+DateTimeOriginal: 2012:03:10 10:44:11
+DigitalZoom: None
+DigitalZoomRatio: 1
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/c/input_root_a/S90/DCIM/147___03
+DriveMode: Single-frame Shooting
+EasyMode: Manual
+ExifByteOrder: Little-endian (Intel, II)
+ExifImageHeight: 2736
+ExifImageWidth: 3648
+ExifToolVersion: '8.77'
+ExifVersion: '0221'
+ExposureCompensation: +2/3
+ExposureCompensation (1): +2/3
+ExposureMode: Manual
+ExposureTime: 1/50
+ExposureTime (1): 1/53
+ExposureTime (2): 1/53
+FNumber: '2.8'
+FNumber (1): '2.7'
+FNumber (2): '2.7'
+FOV: 49.5 deg
+FileModifyDate: 2012:03:10 10:47:25-05:00
+FileName: IMG_4350.CR2
+FileNumber: 147-4350
+FilePermissions: rwxr-xr-x
+FileSize: 12 MB
+FileSource: Digital Camera
+FileType: CR2
+FirmwareRevision: 1.00 rev 3.00
+Flash: Off, Did not fire
+FlashBits: (none)
+FlashExposureComp: '0'
+FlashGuideNumber: 0
+FlashOutput: 0
+FlashpixVersion: '0100'
+FocalLength: 8.6 mm
+FocalLength (1): 8.557 mm
+FocalLength35efl: '8.6 mm (35 mm equivalent: 39.0 mm)'
+FocalPlaneResolutionUnit: inches
+FocalPlaneXResolution: 5479.452055
+FocalPlaneXSize: 7.59 mm
+FocalPlaneYResolution: 5479.452055
+FocalPlaneYSize: 5.69 mm
+FocalType: Zoom
+FocalUnits: 1000/mm
+FocusContinuous: Single
+FocusDistanceLower: 0 m
+FocusDistanceUpper: 0.86 m
+FocusMode: Single
+FocusRange: Auto
+HyperfocalDistance: 3.97 m
+ISO: 500
+ISO (1): '490'
+ISO (2): '486'
+ImageDescription: '                               '
+ImageHeight: 1200
+ImageHeight (1): 342
+ImageSize: 3648x2736
+ImageStabilization: On
+ImageUniqueID: ce085bd225d00f4c0e3cdaae424e95d2
+ImageWidth: 1600
+ImageWidth (1): 456
+InteropIndex: R98 - DCF basic file (sRGB)
+InteropVersion: '0100'
+Lens: 6.0 - 22.5 mm
+Lens35efl: '6.0 - 22.5 mm (35 mm equivalent: 27.4 - 102.6 mm)'
+LensID: Unknown 6-22mm
+LensType: Unknown (-1)
+LightValue: '6.3'
+LongFocal: 22.5 mm
+MIMEType: image/x-canon-cr2
+MacroMode: Normal
+Make: Canon
+ManualFlashOutput: n/a
+MaxAperture: '2.8'
+MaxApertureValue: '2.8'
+MeasuredEV: '7.69'
+MeteringMode: Evaluative
+MeteringMode (1): Multi-segment
+MinAperture: '8'
+Model: Canon PowerShot S90
+ModifyDate: 2012:03:10 10:44:11
+MyColorMode: Off
+NDFilter: Off
+NumAFPoints: 9
+OpticalZoomCode: 3
+Orientation: Rotate 90 CW
+OriginalImageHeight: 2736
+OriginalImageWidth: 3648
+OwnerName: s90
+PeripheralLighting: Off
+PeripheralLightingValue: 0
+PhotometricInterpretation: RGB
+PlanarConfiguration: Chunky
+PreviewImage: !!perl/ref
+  =: Binary data 352957 bytes
+PreviewImageLength: 352957
+PreviewImageStart: '13824'
+PrimaryAFPoint: 0
+Quality: RAW
+RawImageSegmentation: 1 1848 1896
+RecordMode: CR2
+RedBalance: 1.735763
+RelatedImageHeight: 2736
+RelatedImageWidth: 3648
+ResolutionUnit: inches
+Rotation: 90
+RowsPerStrip: 342
+SRAWQuality: n/a
+SamplesPerPixel: 3
+Saturation: Normal
+ScaleFactor35efl: '4.6'
+SceneCaptureType: Standard
+SelfTimer: Off
+SelfTimer2: 0
+SensingMethod: One-chip color area
+SensorBottomBorder: 2763
+SensorHeight: 2784
+SensorLeftBorder: 24
+SensorRightBorder: 3671
+SensorTopBorder: 28
+SensorWidth: 3744
+SequenceNumber: 0
+Sharpness: 0
+ShootingMode: Program AE
+ShortFocal: 6 mm
+ShutterSpeed: 1/50
+ShutterSpeedValue: 1/50
+SlowShutter: Off
+SpotMeteringMode: Center
+StripByteCounts: 11537521
+StripByteCounts (1): 935712
+StripOffsets: '1303040'
+StripOffsets (1): '367104'
+TargetAperture: '2.8'
+TargetExposureTime: 1/50
+ThumbnailImage: !!perl/ref
+  =: Binary data 2361 bytes
+ThumbnailImageValidArea: 0 0 0 0
+ThumbnailLength: 2361
+ThumbnailOffset: '11264'
+UserComment: ''
+VRDOffset: 0
+ValidAFPoints: 1
+WB_RGGBLevels: 1524 878 878 1857
+WB_RGGBLevelsAsShot: 1524 878 878 1857
+WB_RGGBLevelsAuto: 1524 878 878 1857
+WB_RGGBLevelsCloudy: 1598 885 885 1756
+WB_RGGBLevelsDaylight: 1517 882 882 1845
+WB_RGGBLevelsFlash: 1832 896 895 1497
+WB_RGGBLevelsFluorescent: 1554 897 897 1898
+WB_RGGBLevelsKelvin: 1517 882 882 1845
+WB_RGGBLevelsMeasured: 1524 878 878 1857
+WB_RGGBLevelsShade: 1598 885 885 1756
+WB_RGGBLevelsTungsten: 1032 798 798 2490
+WhiteBalance: Auto
+WhiteBalance (1): Auto
+XResolution: 180
+YResolution: 180
+ZoomSourceWidth: 3648
+ZoomTargetWidth: 3648

@@ -1,0 +1,138 @@
+---
+AEBBracketValue: '0'
+AESetting: Normal AE
+Aperture: '4.0'
+ApertureValue: '4.0'
+AutoExposureBracketing: Off
+AutoISO: '100'
+BaseISO: '400'
+BitsPerSample: 8
+BulbDuration: 0
+CameraISO: 400
+CanonExposureMode: Manual
+CanonFirmwareVersion: Firmware Version 1.01
+CanonFlashMode: Off
+CanonImageSize: Large
+CanonImageType: IMG:PowerShot G1 JPEG
+CanonModelID: PowerShot G1
+CircleOfConfusion: 0.006 mm
+ColorComponents: 3
+ColorSpace: sRGB
+ComponentsConfiguration: Y, Cb, Cr, -
+CompressedBitsPerPixel: 3
+Compression: JPEG (old-style)
+ContinuousDrive: Single
+Contrast: Normal
+ControlMode: Camera Local Control
+CreateDate: 2001:11:22 04:03:07
+DOF: 0.11 m (0.63 - 0.73)
+DateTimeOriginal: 2001:11:22 04:03:07
+DigitalZoom: None
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/j/input_root_a
+DriveMode: Single-frame Shooting
+EasyMode: Manual
+EncodingProcess: Baseline DCT, Huffman coding
+ExifByteOrder: Little-endian (Intel, II)
+ExifImageHeight: 1536
+ExifImageWidth: 2048
+ExifToolVersion: '8.77'
+ExifVersion: '0210'
+ExposureCompensation: '0'
+ExposureCompensation (1): '0'
+ExposureTime: 1/125
+ExposureTime (1): 1/125
+FNumber: '4.0'
+FNumber (1): '4'
+FOV: 28.9 deg
+FileModifyDate: 2012:03:12 21:28:25-04:00
+FileName: aws-20011122-img-040307.jpg
+FileNumber: 105-0563
+FilePermissions: rwxr-xr-x
+FileSize: 1300 kB
+FileSource: Digital Camera
+FileType: JPEG
+Flash: No Flash
+FlashActivity: 0
+FlashBits: (none)
+FlashExposureComp: '0'
+FlashGuideNumber: 0
+FlashpixVersion: '0100'
+FocalLength: 14.6 mm
+FocalLength (1): 14.59375 mm
+FocalLength35efl: '14.6 mm (35 mm equivalent: 69.8 mm)'
+FocalPlaneResolutionUnit: inches
+FocalPlaneXResolution: 7366.906475
+FocalPlaneXSize: 7.24 mm
+FocalPlaneYResolution: 7349.282297
+FocalPlaneYSize: 5.44 mm
+FocalType: Zoom
+FocalUnits: 32/mm
+FocusContinuous: Continuous
+FocusDistanceLower: 0 m
+FocusDistanceUpper: 6.77 m
+FocusMode: Single
+FocusRange: Auto
+HyperfocalDistance: 8.47 m
+ISO: '400'
+ImageHeight: 1536
+ImageSize: 2048x1536
+ImageWidth: 2048
+InteropIndex: R98 - DCF basic file (sRGB)
+InteropVersion: '0100'
+Lens: 7.0 - 21.0 mm
+Lens35efl: '7.0 - 21.0 mm (35 mm equivalent: 33.5 - 100.4 mm)'
+LensID: Unknown 7-21mm
+LensType: Unknown (-1)
+LightValue: '9.0'
+LongFocal: 21 mm
+MIMEType: image/jpeg
+MacroMode: Normal
+Make: Canon
+MaxAperture: '2.4'
+MaxApertureValue: '2.0'
+MeasuredEV: '8.97'
+MeteringMode: Default
+MeteringMode (1): Center-weighted average
+MinAperture: '8'
+Model: Canon PowerShot G1
+ModifyDate: 2001:11:22 04:03:07
+OpticalZoomCode: 24
+Orientation: Horizontal (normal)
+OwnerName: PGA TOUR
+Quality: Fine
+RecordMode: JPEG
+RelatedImageHeight: 1536
+RelatedImageWidth: 2048
+ResolutionUnit: inches
+ResolutionUnit (1): inches
+Saturation: Normal
+ScaleFactor35efl: '4.8'
+SelfTimer: Off
+SensingMethod: One-chip color area
+SequenceNumber: 0
+Sharpness: 0
+ShootingMode: Manual
+ShortFocal: 7 mm
+ShutterSpeed: 1/125
+ShutterSpeedValue: 1/125
+SlowShutter: Off
+SubjectDistance: 0.677 m
+TargetAperture: '4'
+TargetExposureTime: 1/125
+ThumbnailImage: !!perl/ref
+  =: "ÿØÿÛ\0\x84\0\t\x06\x06\b\x06\x05\t\b\a\b\n\t\t\v\r\x16\x0F\r\f\f\r\x1C\x13\x15\x10\x16!\x1D#\"!\x1C
+    \x1F$)4,$'1'\x1E\x1F-=-167:::\"*?D>8B3796\x01\t\t\t\f\n\f\x14\f\f\x14\x0F\n\n\n\x0F°\x1A\n\n\x1A°O\x1A\x1A\x1A\x1A\x1AOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOÿÀ\0\x11\b\0x\0 \x03\x01!\0\x02\x11\x01\x03\x11\x01ÿÄ\x01¢\0\0\x01\x05\x01\x01\x01\x01\x01\x01\0\0\0\0\0\0\0\0\x01\x02\x03\x04\x05\x06\a\b\t\n\v\x10\0\x02\x01\x03\x03\x02\x04\x03\x05\x05\x04\x04\0\0\x01}\x01\x02\x03\0\x04\x11\x05\x12!1A\x06\x13Qa\a\"q\x142\x81\x91¡\b#B±Á\x15RÑð$3br\x82\t\n\x16\x17\x18\x19\x1A%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz\x83\x84\N\x86\x87\x88\x89\x8A\x92\x93\x94\x95\x96\x97\x98\x99\x9A¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùú\x01\0\x03\x01\x01\x01\x01\x01\x01\x01\x01\x01\0\0\0\0\0\0\x01\x02\x03\x04\x05\x06\a\b\t\n\v\x11\0\x02\x01\x02\x04\x04\x03\x04\a\x05\x04\x04\0\x01\x02w\0\x01\x02\x03\x11\x04\x05!1\x06\x12AQ\aaq\x13\"2\x81\b\x14B\x91¡±Á\t#3Rð\x15brÑ\n\x16$4á%ñ\x17\x18\x19\x1A&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz\x82\x83\x84\N\x86\x87\x88\x89\x8A\x92\x93\x94\x95\x96\x97\x98\x99\x9A¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ\0\f\x03\x01\0\x02\x11\x03\x11\0?\0ó\x16^zS\x0FÊy­Ú2ü\x05ÝÇS@õ4\0â@\x1CRf\x80õ\x10Q\x91êh\x01\x0FN3I\x92;Q°[þ\x1Ci\x97\x9Cwô4n+Ö¦ã\x17p=³McøS\x15\x80\x1A\\æ\x90Å\v\x9F­K\x8E0M4\x841ùõ4Ìw40,d\x12i¦2Ý*·\x01¢2§\x90iØõ\x14X\x06°ÇJo=é\0t¥\a4\fp\x1EÆ\x82¸§ý1\fn;~\x95\x1E\t<\x8A\x96\x16\x1C\x01\x1D¿J]§<\x03@Ðí\x99íFÌ\x7Fú©ØCÕ8¡¸¦\x04Y$ûQÓÖ¤aÈ
+    Ô©!\x1Di­\x05ú\x8EfÈÈ¦r[½P\t´\x9A6ûÒ°ÿ\01qÚ\x90Ò\x10\x9B±Þ\x8C\x83EÀL\x1CÑ·\x9EN)\fx\x8E\x8D\x9BM;\x05ÿ\0\x01z\noSG\x90\n\tõ¦¹ÏzL]\x04\x1C\x0FZ\0Í\b\tB\x80=}©\x18\02*ô\0\\~\x14ì\nKñ\0#Ò\x98Ç\x9A\x03q\x06HïH})\f0´\0;P\x02\x81ô )Ï\x02\x8B\vô\x14\x92½\x89¥GÞpx£¯¨ÿ\0A­\x9Cã\x14Þh\x10 \x1CqH@\a4\x861\x8F½\x01±H\x19*\x92¦\x9F÷ªÐ\x81\x94\x8A\x06h\x01\b4\x98&\x80\x02pqIõ\x02\x90ÄÚ\x0FoÒ\x93a\x1D3\x8A,\e\0\x8DóòÒîxÇÌ\aáF«ô\x10ñ&þ¢\x92HøÜ1Çµ\e\x8FÈ2Ì¾ô\x807\\~\x94\0¥I¤1c©¡ \eäç¾)|\x90:Ò°\x0F\v\x9E\vb\x9C#\x03î¹ãÔU[ÌBôê\x7F\x1A1\x9E\x87ñ¦Àk{\x9CÓÔ)\x1DéoòØ`B\x8EÔÝÊ{â\x8B\x8AÃ¸4\x98\x02\x98ÅÝ\x81Å0¦þ´\x9A\x10\x9F*\x8Eh\x0E\x0FÒ\x95ÇqT¨8©\x06)¦\e\x01Q\x8E\x94Â \x1Cv¦!8íLc\x8Eõ
+    .Ì\x0E\x0Eh\r\x9Avüz\x80\x8CØïJ\x0EzR½Àp\\Òc\a­7§\x90îI\x05³\\Ê#VE'»°Qù\x9E)×6\x0FhÃ/\x1C\x80ôxÜ2çÓ\"\x95®\x04`qÞ\x97\x1CûS\x01\b?ÃW\x12ÅE¾n&Xå\x93\x1EP\f¤\x7FÀ\x8E~ZMØ5(Ï\x04\x909\x12\x0E2@aÑ¾\x87½
+    Bin\x0FAJ7V\x184\x17\"\x8FÔ\x03Ì9ëHÒÿ\0úéÜ\bÚOCM$\x9A\x9Bþ O¹qA\x01\x8Ex\x15\x7FÕ\x84\N\x11\x86ë\x8Ai;OËKõ\x18\x06=qR+gªóEÀ\x96MqôÝ*âÆ\x18!-w·|Ì\x99eP~èôÉëô¨,|O}i§É§Èþm\x8CÌ\x1AH\x98\fdtaè~\x95\x93\x93½û\fs:\x9Cí<SI­¯ µ\x1D\x13\x84\x95X±]§9\x1DEV¹×õ+«\x96\x97íRFIÏîÎÜû\x9Cu5\x8Cï{\x05\x89cÔç½\x8DVîF\x91£Â¡cÐzTÈF\x0E}8Ç­]7u¯@\x18Îj&9ªl,4ôàR\x7F:\x96\x1FÓ\x13\x18=)À\x03Í\b?«\n2;T\x83'·éUk\x8Bô\x0F¥<\x01\x8Ei\x87B6m§\x8APÙ¥q\x95eUk\N\x12¶ÑÐ1éK:@\x8A6ºHÇ¢¡Ídí¯GØdñ\f
+    \a­?\x1EõªZ\x13ù\fp\x02äu\x14ÈRÕÃ\x13\"FGUs\x83ÿ\0×©v¾½z\x8Fò\x18J<\x9F¸ÉQÕ±\x8CÕ\x90~Z\"¾WØ\x1Eã\t\x19æ\x90H\b<qL?PÜ\x0F\x1FÒ\x9AW\x1D3@\x060y \x9Fj[\x7F\x98\n\x18\x8A\x0Eæï\x8Anâóê\nÌ§ÿ\0­Kæ\x16êh¿@%Lc\x91úR0ª{\0ÆA'\a¥5m\x92>@æ¦Ëqþ#Æ~\x94½{U\b]\x84õæ\x9A`\x04ýÌûâ\x93W\x182\x95\x18Û\x81MÏ\x189¡\NÆ\x9E\x94\N2j\x7F0\fb\x9C\r0\x14\x9E)¹\x1D\b¤\x1F\x90\x99É÷§¡é\x93Mn\x1F î\tÅ\x013Í?Ä\ac\x14\x03L\x10 zR\x11\x9Fj-ø\x80\x9DE.@4\0\aÏJp\x93ß\x14\x02\x1AÌXc4\x98à\x1AA°\x9BFßz0\x01\x06\x8Fó\x15¿\x10$\x13éE\x03\x1AO\x1CSH¤þàý\0\x01J\x06N:S]\x80z§½8\x8FJ~B\x10Ó\x80ç\x14¿«\x8C\\â\x98N)\x87õq¹=©:ö©`\x19Å(çµ\0)ýiËÒ\N§«è\x1F\x90\x8CNi¹'¯4ÿ\0@\x13\x9E´u\x1Dh\x0FÌ8=i§ØR\0Ïz\x03\x0Eô\t\x0E\x12\x0F|Ó\x83\x1CÓ¸\x01l\x8AMÝ¨¸ÃpÏ4¹æ\x80\x14`Ñ·\x14\bM¦\x8E\x05\x16\x1FP\x18 \x1EzÐ\x02à\x13K´S\x0F!\x84cÞ\x90Ô°üF\x1Ain)1?é\x92\NÀ§yJG½U\x80nÜ\x1E3F1Ö\x8B~\x01°§\x06\x80§4\x86\x18É£\x18ëLD\x8BÓ­\x06\x98ü\x84<t¦\x9E\x94\x80B?\nBpÜR\0\x0Eiw\x9FZ\x10\r$\x93\x9Eô\x84ñI°\ff\x90Å\x93ÔQa\x0E\x0E_©Çµ=O\x15@\x1D¸â\x8C\x13Û\x8A\01\x81\x8CsJ8¦0ã¯j\t\x1D\x0FZ@4¿½\x01ýhL\x18n¤/íKú@!oJMØn:ÑpýGuÿ\0ëRP\x02\x12Xñ@éG¨\bI\x1D\r\x01\x8E:sC\x0FêÇÿÙ"
+ThumbnailLength: 2105
+ThumbnailOffset: '1536'
+UserComment: ''
+WhiteBalance: Auto
+XResolution: 180
+XResolution (1): 180
+YCbCrPositioning: Centered
+YCbCrSubSampling: YCbCr4:2:2 (2 1)
+YResolution: 180
+YResolution (1): 180

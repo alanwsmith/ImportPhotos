@@ -1,0 +1,54 @@
+# Notes on sample data
+
+## Set - a
+
+- Contains one image from the 5DII and a junk file that shouldn't be processed. 
+
+## Set - b
+
+- Contains nine images from the 5DII. 
+
+- Seven images were shot in the same minute. These are used to test the conflict number. 
+
+## Set - c
+
+- Contains .cr2 and .jpg images from the Canon S90. 
+
+- Some of the .cr2 images and some of the .jpg images were shot in the same minute relative to each other. This will allow testing the conflict number to make sure it works properly. 
+
+## Set - d
+
+- A .MOV file and its accompanying .THM file from the S90. The .MOV file should be put in the appropriate video directory. The .THM should be ignored. It's just a thumbnail. 
+
+## Set - e
+
+- A collection of .CR2, .JPG and .MOV files from the S100. (Note that the S100 doesn't appear to product .THM files)
+
+## Set - f
+
+- Two .MOV files from the S100 with the same time stamp. 
+
+## Set - g
+
+- .CRW files from the Canon 10D. 
+
+## Set - h
+
+- A photo that I think is from the iPhone 3. It doesn't have any discernible time stamp in the EXIF data. Not sure if this was because it was edited or because it came that way. (In fact, this might have come from another app the used the camera and not the actual camera app itself.)
+
+## Set - i
+
+- These are from your FinePix F31fd camera.
+
+
+## Set - j
+
+- File: j/input_root_a/aws-20010916-img-162809.jpg is from the Canon EOS D30.
+
+- File: j/input_root_a/aws-20011122-img-040307.jpg is from the Canon G1.
+
+
+
+
+
+ 

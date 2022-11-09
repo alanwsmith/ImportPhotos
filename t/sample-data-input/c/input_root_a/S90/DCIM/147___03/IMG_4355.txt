@@ -1,0 +1,180 @@
+---
+AEBBracketValue: '0'
+AESetting: Normal AE
+AFAreaHeights: 18 0 0 0 0 0 0 0 0
+AFAreaMode: Single-point AF
+AFAreaWidths: 18 0 0 0 0 0 0 0 0
+AFAreaXPositions: 0 0 0 0 0 0 0 0 0
+AFAreaYPositions: 0 0 0 0 0 0 0 0 0
+AFImageHeight: 100
+AFImageWidth: 100
+AFPoint: Manual AF point selection
+AFPointsInFocus: '0'
+Aperture: '2.0'
+ApertureValue: '2.0'
+AutoExposureBracketing: Off
+AutoISO: '223'
+AutoRotate: None
+BaseISO: '100'
+BitsPerSample: 8
+BulbDuration: 0
+CameraISO: Auto
+CameraTemperature: 23 C
+CameraType: Compact
+CanonExposureMode: Program AE
+CanonFirmwareVersion: Firmware Version 1.00
+CanonFlashMode: Off
+CanonImageHeight: 480
+CanonImageSize: Small
+CanonImageType: IMG:PowerShot S90 JPEG
+CanonImageWidth: 640
+CanonModelID: PowerShot S90
+Categories: (none)
+CircleOfConfusion: 0.007 mm
+ColorComponents: 3
+ColorSpace: sRGB
+ComponentsConfiguration: Y, Cb, Cr, -
+CompressedBitsPerPixel: 3
+Compression: JPEG (old-style)
+ContinuousDrive: Single
+Contrast: Normal
+ControlMode: Camera Local Control
+CreateDate: 2012:03:10 10:49:41
+CustomRendered: Normal
+DateStampMode: Off
+DateTimeOriginal: 2012:03:10 10:49:41
+DigitalZoom: None
+DigitalZoomRatio: 1
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/c/input_root_a/S90/DCIM/147___03
+DriveMode: Single-frame Shooting
+EasyMode: Manual
+EncodingProcess: Baseline DCT, Huffman coding
+ExifByteOrder: Little-endian (Intel, II)
+ExifImageHeight: 480
+ExifImageWidth: 640
+ExifToolVersion: '8.77'
+ExifVersion: '0221'
+ExposureCompensation: '0'
+ExposureCompensation (1): '0'
+ExposureMode: Auto
+ExposureTime: 1/500
+ExposureTime (1): 1/512
+ExposureTime (2): 1/512
+FNumber: '2.0'
+FNumber (1): '2'
+FNumber (2): '2.1'
+FOV: 66.7 deg
+FileModifyDate: 2012:03:10 10:47:26-05:00
+FileName: IMG_4355.JPG
+FileNumber: 147-4355
+FilePermissions: rwxr-xr-x
+FileSize: 82 kB
+FileSource: Digital Camera
+FileType: JPEG
+FirmwareRevision: 1.00 rev 3.00
+Flash: Off, Did not fire
+FlashBits: (none)
+FlashExposureComp: '0'
+FlashGuideNumber: 0
+FlashOutput: 0
+FlashpixVersion: '0100'
+FocalLength: 6.0 mm
+FocalLength (1): 6 mm
+FocalLength35efl: '6.0 mm (35 mm equivalent: 27.4 mm)'
+FocalPlaneResolutionUnit: inches
+FocalPlaneXResolution: 2191.780822
+FocalPlaneXSize: 7.59 mm
+FocalPlaneYResolution: 2191.780822
+FocalPlaneYSize: 5.69 mm
+FocalType: Zoom
+FocalUnits: 1000/mm
+FocusContinuous: Single
+FocusDistanceLower: 0 m
+FocusDistanceUpper: 0.4 m
+FocusMode: Single
+FocusRange: Auto
+HyperfocalDistance: 2.73 m
+ISO: 250
+ISO (1): '226'
+ISO (2): '223'
+ImageDescription: '                               '
+ImageHeight: 480
+ImageSize: 640x480
+ImageStabilization: On
+ImageUniqueID: b5082fd125d00f4c0e3cdaae424e95d2
+ImageWidth: 640
+InteropIndex: R98 - DCF basic file (sRGB)
+InteropVersion: '0100'
+Lens: 6.0 - 22.5 mm
+Lens35efl: '6.0 - 22.5 mm (35 mm equivalent: 27.4 - 102.6 mm)'
+LensID: Unknown 6-22mm
+LensType: Unknown (-1)
+LightValue: '9.6'
+LongFocal: 22.5 mm
+MIMEType: image/jpeg
+MacroMode: Normal
+Make: Canon
+ManualFlashOutput: n/a
+MaxAperture: '2'
+MaxApertureValue: '2.0'
+MeasuredEV: '10.59'
+MeteringMode: Evaluative
+MeteringMode (1): Multi-segment
+MinAperture: '8'
+Model: Canon PowerShot S90
+ModifyDate: 2012:03:10 10:49:41
+MyColorMode: Off
+NDFilter: Off
+NumAFPoints: 9
+OpticalZoomCode: 0
+Orientation: Horizontal (normal)
+OwnerName: s90
+PrimaryAFPoint: 0
+Quality: Fine
+RecordMode: JPEG
+RelatedImageHeight: 480
+RelatedImageWidth: 640
+ResolutionUnit: inches
+ResolutionUnit (1): inches
+Rotation: 0
+Saturation: Normal
+ScaleFactor35efl: '4.6'
+SceneCaptureType: Standard
+SelfTimer: Off
+SelfTimer2: 0
+SensingMethod: One-chip color area
+SequenceNumber: 0
+Sharpness: 0
+ShootingMode: Program AE
+ShortFocal: 6 mm
+ShutterSpeed: 1/500
+ShutterSpeedValue: 1/501
+SlowShutter: Off
+SpotMeteringMode: Center
+TargetAperture: '2'
+TargetExposureTime: 1/501
+ThumbnailImage: !!perl/ref
+  =: "ÿØÿÛ\0\x84\0\t\x06\x06\b\x06\x05\t\b\a\b\n\t\t\v\r\x16\x0F\r\f\f\r\x1C\x13\x15\x10\x16!\x1D#\"!\x1C
+    \x1F$)4,$'1'\x1E\x1F-=-167:::\"*?D>8B3796\x01\t\t\t\f\n\f\x14\f\f\x14\x0F\n\n\n\x0F\x1A\x1A\n\n\x1A\x1AO\x1A\x1A\x1A\x1A\x1AOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOÿÀ\0\x11\b\0x\0 \x03\x01!\0\x02\x11\x01\x03\x11\x01ÿÄ\x01¢\0\0\x01\x05\x01\x01\x01\x01\x01\x01\0\0\0\0\0\0\0\0\x01\x02\x03\x04\x05\x06\a\b\t\n\v\x01\0\x03\x01\x01\x01\x01\x01\x01\x01\x01\x01\0\0\0\0\0\0\x01\x02\x03\x04\x05\x06\a\b\t\n\v\x10\0\x02\x01\x03\x03\x02\x04\x03\x05\x05\x04\x04\0\0\x01}\x01\x02\x03\0\x04\x11\x05\x12!1A\x06\x13Qa\a\"q\x142\x81\x91¡\b#B±Á\x15RÑð$3br\x82\t\n\x16\x17\x18\x19\x1A%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz\x83\x84\N\x86\x87\x88\x89\x8A\x92\x93\x94\x95\x96\x97\x98\x99\x9A¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùú\x11\0\x02\x01\x02\x04\x04\x03\x04\a\x05\x04\x04\0\x01\x02w\0\x01\x02\x03\x11\x04\x05!1\x06\x12AQ\aaq\x13\"2\x81\b\x14B\x91¡±Á\t#3Rð\x15brÑ\n\x16$4á%ñ\x17\x18\x19\x1A&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz\x82\x83\x84\N\x86\x87\x88\x89\x8A\x92\x93\x94\x95\x96\x97\x98\x99\x9A¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ\0\f\x03\x01\0\x02\x11\x03\x11\0?\0ñT§1Â\x12;R\x02/=½¨óßÚ\x98\a\x9Eþ£ò¥óß×ô \x04óäþ÷éG\x9Cÿ\0Þ \x03Î\x7Fï\x1A<çþñ \x03Í\x7Fï\x1A<×þñ \x03Í\x7Fï\x9FÎ\x8F6Oï·ç@\a\x9B'÷Ûó£Í\x93ûíùÐ\x01æÉýöüèódþû~t\0yÒ\x7F}¿:<Ù?¾ß\x9D\0=:\x9Asÿ\0ªj@W®\x8E\x0F\t<É¸3`\x80W§5q\x8F7È\v\tà¢AÞä\x1Eß0©G\x82#ÉÌ­\x8C\x7FyzþU~Í\x0EÃ×Á\x10ñ\x99[ß÷\x8Bþ\x14­à\x98\x14\x13æ\x92\aý4\x1FüM\x1EÍ\x05\x88ÿ\0á\x12µcò\x19Y}s×ô©\x7Fá\x0E¶ÝÀ\x90¯ã\x9FåG\"\v\n¾\x10´\fw,¤vÆ\x7FÂ\x9Dÿ\0\b\x95\x90ÿ\0\x96rþgü(åA`ÿ\0\x84NÇþyKÿ\0}\x1Fð¤>\x14²\x1FòÆOûé¨åAa§ÂöCþXÉÿ\0}55¼3f?å\x8C\x87þ\x04iò
+    ±\x19ðí ÿ\0\x96\x12\x7FßF\x99ÿ\0\bý®\x7FãÞAï¸ÑÈ\x82ÃO\x87­\x81ÿ\0Vqé\x93Q·\x87à\x03\N9õæ\x8Ff\x82Ç>½M+ÿ\0ªjÄD\0W¨ÙÅ²\x04\x1C\x9C(é\x93ÛØV´º\x8D\x17\"\x81%\x9AU`Ä\x05^Ä\x1Eý(\x8A%v\x18\f3ìÕ«Øf\x9AÂ¸åGåD\x91/\x96Ü\x0FÊ\x803-m£\x92%Þ¹å»\x13üF¯¥\x9Cxàwî\x86¤\x10\x87K\x89\x8EX+\x1FR´ïìë`I\x10¨Ï\\\n\x064éöøÇ\x92¸úSM\N¸9òSò \x06µ\N¹ë\nþU\eX[ÿ\0Ï$ü¨\x10Æ²\x83þy/åPµ\x84\x1FóÉ?*`FÖPÿ\0Ï5üª&²\x80\x7FË%üªì\a\x9A/ZY?Õ5q\x92B¿xW¬C\x18\x18ùsÓ?.{}kZ]F\x8B¶«ûù6©\x18UÀ?\x8D9#\x03ï\x92¬\a
+    \x068üA­¿\x02\x8B\x91mè¡ùîAþf\x9F*þé¾\x94\bÎ±\\\"\x102w7\x03¿ÌkEb'\x92$\x1FV©\x1A\x17ìã9Üý1÷\x8D4Û\x8C}çÿ\0¾\x8D\x03\x11 S\x9E_\x9Fö\x8D1 R1\x97ÿ\0¾Í\01 \\\x93\x96ÿ\0¾ÍFÐ/«ÿ\0ßf\x81\rÙ´`g\x03Ôæ£e¦\"&Z\x89\x96©\x01åKÖ\x96_õf¸É\"\x88fU\x1Eâ½f7\x8C±8Ê\x93Á\0\x1Cñô­©+Üh»¦\x90òË\x8Càm\x188ãò©dBep\x01?\x81>\x9E\x95«(\x91YÔü þ!\x8DY\x93\x06\x13ó\x02qB\x03>Àp\x99é¹¿ô#Z\x06,d\x88â'¶_¯éHB\x18AÆc\x87\x8E\x9F7\x7FÊ\x91¢_îEïH¡ \x14Pª\"Qè\r#3dà¦;s@\x11±nyOj\x8D\x8B\x7Fy(\x11\e\x96Ç\f\x99ú\x1Ak2ã¨ DlËê*\x17eõ«\x88\x1ER½h\x9Bý_ã\\d\x8Dµ\e®¢\x1E®?\x9DzÒC\x1EN\x118=\tú{VÔº\x8D\x17ôõS$Å\x15W\x95È^\x9D)Î\x99\x99ÎÜÿ\0ÀsßëZ²\x87F\x83#r\x92\a¢ÿ\0õêÃÛF\"%A\x1CzÓ\x8A¸\x15tèÁD$gçaÿ\0\x8F\x1AÖò×Ð~T\x98!\fkè?*i\x8Cz\nH¦1\x90z\n\x89\x94\x01\x9C~\x94Ú\x10ÆQè*6QéHDL\a¥FÃÚ\x98\x88ÙG¥Bâ\x9CDy*u¢oõcë\\b\v\x01\x9DBÜzÊ¿Î½u\x01ÉûßxôÝíé[RÙ\x8D\x17¬\ti'-Ç+Øú\x0FZk:<®7!\x1Cç%}}ëWý2\x8B\x11@\x19A(['9\x01qSÉ\x16Ø\x8FÎÇ\x03§\x15q@TÓGîãÿ\0®\x8Dÿ\0¡\x1AÖÆ*$\b1MaJ%26\x15\x13\n»\x121\NDÂ¤L\x89\NFÂ\x98\x110¨\x9CP·\x11äI÷¨\x9Fî\x0F­q\x88~\x963ªÚ\x8FY\x93ù\x8Aõ¸\x97$\x9D§ï\x1Fá'úÖô¶cEí;\x04ÍµX\rÃ\x86úRÏjÑ±x·\x15=@<\x8FÒµõÙìQ=¬¨\x8B\x83!\x03\x1D\x18\x8C\n\x9AY¢òOï\x13\x90\x7F\x88V\x91ØL§¦\x10bB\x0EG\x98ßú\x11­\x8CsYH¨\x89\x8Ak\n\"9\x11°¨\x98U\x901\NBâ dl*&\x15D\x91°¨\x9CR@y\x02}ê'û\x83ë\\b%ÑÆu\x9B1ÿ\0MÓÿ\0B\x15ëP 2r\x81¾sÕGøÖô¶~¥\"ý\x82*<ÁT(Ü8\x03\x1D\N^\x1D+f2\x98,\"\x1F{\x1CcïzQ!o³õn\x87ûÞ¿J¤\x034\x8Fø÷\x8B?ß?ú\x11­®Õ\x12\x04!õ¦µ\x11\e#j\x8DªÉ#j\x89\NOâ2&\x15\e\n\x19$mQ8¤·íä\fñåûô\\}Ñõ®1\x13è\x83:í\x90ÿ\0¦éÿ\0¡\nõd(_\fU~brBÿ\0úëz[?R\x91£§°&l0o\x9Csø\n²nbRT¸\x04v5¶ã+Æ\N×j\x80[¿\x03ÛÞ\x9D$\x0E
+    û½\x8Foþ½T@\x8BJùa\x8CtÃ\x9Fý\bÖÈj\x96\x84\x80\x9CS\x18Ð\x860\x9A\x8D\x8D1\x11±¨ØÓ@FÕ\x13R{\x88\x8D\x86\rDõ1|Ú÷\x06xòýñIq÷V¸ÄXÐ¿ä=cÿ\0]Óù\x8AõhÕÎp\e©èWü+z;?Q¢î\x9A\x18$ÙÈ;ûãÐzR\x8DÑLD¡\x1F'<·©úVÝ\n,ÛL\tÆÄ\\ð6¶sSÌ\x7FtßJ¤&géíò'ýt?ú\x11­mÔ\x84\x80µ4µ\x05\f&\x98Æ\x81\x11±¨ØÕ
+    dlj6æ¥±\x11\x9FSQ1¡[¦È\x0F\x1F_¾).:-p\x88³ ÿ\0ÈzËþ»/ó¯U\x82M¬\x06Ü\x93é´\x7FZÞ\x8EÏÔh½by\x9Býÿ\0è)Ó\x13ç\x9Cg é\x9F\x7FJß Ç@[Ì\\îëßwõ«37î\x9BéM\x01\x9D§·È\x9FõÐÿ\0èU­º\x84\0Z\x90µ
+    \x18Z\x98Æ\x98\f&£cLDlj65,\bØÔli <|}áEÇE®\x01\x16t\x1Fù\x0FYÿ\0×eþuêÑl\x18 \fý+z[?Q¢Õ\x8BgÎÿ\0\x7Fú\nuÃ\x0F;\x9C\x7F\x0F\\{úÖý\x06\x102\x89\x14|¹\a§\x1FãV¦oÝ7Ò\x9AØ\fí=¾Uÿ\0®\x87ÿ\0B­mÔ!\x06êBÔÆ0µ4µ\01\x8DFÆ\x81\fcQ±¤ÄFÆ£c@Ï
+    \x1DGáKqü5À\"×\x87Ô>¿f\x0FC(¯V\x8AÒ,\x0E_þú5ÑGgê4Mf¢/9W$\aîrz\nF\x98K+l\r\x9Cc\x18<~\x86¶è2X]\x95\x80ÚÜúçü*y\x18ù'8\a\x1Dª\x90\x8Cû\x06ùWþº\x1Fý\nµwR@\e©¥©\x80ÒÔÒi\x80ÂÔÆj\0a5\e\x1A@FÆ£c@\x1EF;Q?ð×\x9E\"ç\x87\x7Fä`³ÿ\0®\x82½^'àWE\x1D\x9F¨\vnÿ\0¼\x97ýÿ\0è(\x95^)\fÐòHÃ\x03\x93ýkt1ðÞ\x16\x19v\x03Ø!ô©åoÝ·Ò\x9A\x03>Á¾Eÿ\0®\x87ùÖ®ê\x10\tº\x90µ0\x1AZ\x9AZ\x98\r-Lf¤\x03\vTlÔ\x80\x8D\x9A£f¤3ÿÙ"
+ThumbnailImageValidArea: 0 0 0 0
+ThumbnailLength: 2730
+ThumbnailOffset: '5120'
+UserComment: ''
+VRDOffset: 0
+ValidAFPoints: 1
+WhiteBalance: Auto
+WhiteBalance (1): Auto
+XResolution: 180
+XResolution (1): 180
+YCbCrPositioning: Co-sited
+YCbCrSubSampling: YCbCr4:2:2 (2 1)
+YResolution: 180
+YResolution (1): 180
+ZoomSourceWidth: 3648
+ZoomTargetWidth: 3648

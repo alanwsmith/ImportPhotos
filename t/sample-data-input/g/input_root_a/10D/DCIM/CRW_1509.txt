@@ -1,0 +1,176 @@
+---
+AEBBracketValue: '0'
+AEBSequenceAutoCancel: 0,-,+/Enabled
+AFAreaHeight: 151
+AFAreaWidth: 151
+AFAreaXPositions: 1014 608 0 0 0 -608 -1014
+AFAreaYPositions: 0 0 -506 0 506 0 0
+AFAssist: Emits/Fires
+AFImageHeight: 2048
+AFImageWidth: 3072
+AFPoint: Manual AF point selection
+AFPointRegistration: Center
+AFPointsInFocus: '3'
+Aperture: '7.1'
+AssistButtonFunction: Select Home Position
+AutoExposureBracketing: Off
+AutoISO: '100'
+AutoRotate: None
+BaseISO: 100
+BaseISO (1): '200'
+BlackMaskBottomBorder: 1856
+BlackMaskLeftBorder: 24
+BlackMaskRightBorder: 40
+BlackMaskTopBorder: 224
+BlueBalance: 1.241671
+BracketMode: Off
+BracketShotNumber: 0
+BracketValue: 0
+BulbDuration: 0
+CameraISO: n/a
+CameraType: EOS Mid-range
+CanonExposureMode: Manual
+CanonFileDescription: EOS 10D CMOS RAW IMAGE
+CanonFirmwareVersion: Firmware Version 2.0.1
+CanonFlashMode: Off
+CanonImageHeight: 2048
+CanonImageSize: Large
+CanonImageType: CRW:EOS 10D CMOS RAW IMAGE
+CanonImageWidth: 3072
+CanonModelID: EOS 10D
+CircleOfConfusion: 0.019 mm
+ColorBW: 257
+ColorBitDepth: 24
+ColorSpace: Adobe RGB
+ColorTemperature: 5200
+ColorTone: Normal
+ComponentBitDepth: 8
+CompressedDataLength: 4247590
+CompressedDataOffset: 514
+ContinuousDrive: Single
+Contrast: Normal
+ControlMode: Camera Local Control
+DateTimeOriginal: 2009:06:16 14:40:24
+DecoderTableNumber: 1
+DigitalZoom: None
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/g/input_root_a/10D/DCIM
+DriveMode: Single-frame Shooting
+EasyMode: Manual
+ExifToolVersion: '8.77'
+ExposureCompensation: '0'
+ExposureLevelIncrements: 1/3 Stop
+ExposureTime: 1/406
+FNumber: '7.1'
+FOV: 51.6 deg
+FileFormat: CRW
+FileModifyDate: 2012:03:11 15:35:46-04:00
+FileName: CRW_1509.CRW
+FileNumber: 815-1509
+FilePermissions: rwxr-xr-x
+FileSize: 6.3 MB
+FileType: CRW
+FillFlashAutoReduction: Enable
+FlashActivity: 0
+FlashBits: (none)
+FlashExposureComp: '0'
+FlashGuideNumber: 0
+FlashSyncSpeedAv: Auto
+FocalLength: 24 mm
+FocalLength35efl: '24.0 mm (35 mm equivalent: 37.2 mm)'
+FocalPlaneXSize: 23.22 mm
+FocalPlaneYSize: 15.49 mm
+FocalUnits: 1/mm
+FocusDistanceLower: 0.91 m
+FocusDistanceUpper: 0.98 m
+FocusMode: One-shot AF
+FocusRange: Not Known
+HyperfocalDistance: 4.17 m
+ISO: '200'
+ImageHeight: 2048
+ImageSize: 3072x2048
+ImageWidth: 3072
+JpgFromRaw: !!perl/scalar:SCALAR Binary data 724392 bytes
+Lens: 24.0 - 105.0 mm
+Lens35efl: '24.0 - 105.0 mm (35 mm equivalent: 37.2 - 162.8 mm)'
+LensAFStopButton: AF stop
+LensID: Unknown 24-105mm
+LensType: Unknown (-1)
+LightValue: '13.3'
+LongFocal: 105 mm
+MIMEType: image/x-canon-crw
+MacroMode: Unknown (0)
+Make: Canon
+ManualFlashOutput: n/a
+MaxAperture: '4'
+MeasuredEV: '15.00'
+MeasuredEV (1): 14.75
+MeasuredEV2: 15.75
+MenuButtonDisplayPosition: Previous
+MeteringMode: Evaluative
+MinAperture: '22'
+MirrorLockup: Disable
+Model: Canon EOS 10D
+NDFilter: n/a
+NumAFPoints: 7
+OpticalZoomCode: n/a
+OriginalFileName: CRW_1509.CRW
+OwnerName: ''
+PixelAspectRatio: 1
+Quality: RAW
+ROMOperationMode: USA
+RawAndJpgRecording: RAW+Medium/Fine
+RawData: !!perl/scalar:SCALAR Binary data 5877176 bytes
+RawJpgHeight: 1360
+RawJpgQuality: Fine
+RawJpgSize: Medium
+RawJpgWidth: 2048
+RecordID: 0
+RecordMode: CRW+THM
+RedBalance: 1.961925
+Rotation: 0
+SafetyShiftInAvOrTv: Enable
+Saturation: Normal
+ScaleFactor35efl: '1.6'
+SelfTimer: Off
+SelfTimer2: 0
+SensorBottomBorder: 2063
+SensorHeight: 2068
+SensorLeftBorder: 72
+SensorRightBorder: 3143
+SensorTopBorder: 16
+SensorWidth: 3152
+SequenceNumber: 0
+SerialNumber: '1720504385'
+SerialNumberFormat: Format 1
+SetButtonWhenShooting: Normal (disabled)
+Sharpness: 0
+ShootingMode: Manual
+ShortFocal: 24 mm
+Shutter-AELock: AE lock/AF
+ShutterCurtainSync: 1st-curtain sync
+ShutterReleaseNoCFCard: No
+ShutterSpeed: 1/406
+SlowShutter: None
+SuperimposedDisplay: On
+TargetAperture: '7.1'
+TargetCompressionRatio: 10
+TargetExposureTime: 1/403
+TargetImageType: Real-world Subject
+ThumbnailFileName: CRW_1509.THM
+TimeZoneCode: 0
+TimeZoneInfo: 0
+UserComment: ''
+ValidAFPoints: 7
+WB_RGGBLevels: 1855 949 942 1174
+WB_RGGBLevelsAuto: 1855 949 942 1174
+WB_RGGBLevelsCloudy: 1957 835 828 927
+WB_RGGBLevelsCustom: 509 949 942 1688
+WB_RGGBLevelsDaylight: 1788 835 828 1011
+WB_RGGBLevelsFlash: 1989 835 828 927
+WB_RGGBLevelsFluorescent: 1582 836 829 1384
+WB_RGGBLevelsKelvin: 1788 835 828 1010
+WB_RGGBLevelsShade: 2118 835 828 859
+WB_RGGBLevelsTungsten: 1275 905 897 1674
+WhiteBalance: Auto
+ZoomSourceWidth: 3072
+ZoomTargetWidth: 3072

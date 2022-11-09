@@ -1,0 +1,64 @@
+# TODO List for ImportPhotos.pm
+
+- Deal with PNG and PSD files. 
+
+- Add a '-v' flag that shows the version you are running without actually running the script. 
+
+- Add a check into the missing EXIF conflict number renamer so that if it hits 99, it croaks. That would almost certainly mean something went wrong. 
+
+
+-------------------------------------------------------------------------------
+
+- Setup so that the Missing_EXIF_Date files are appended with a conflict number so they don't overwrite each other. 
+
+- Switch over so that you aren't using memory for the files. This will prevent issues when copying over large movie files. 
+
+- Check to make sure there is enough storage space for all output locations before running the script. 
+
+- Test an images from every month. 
+
+- Test across multiple years. 
+
+- Setup a test that makes sure that the app fails if it can't write to all the defined output directories. 
+
+- Test '.crw' files (or whatever the IR camera shoots)
+
+- Test Images off of S90
+
+- Test Images off of S90
+
+- Test Images off of 5D
+
+- Test Images off of 5DII
+
+- Test Images off of Mark's 1D
+
+- Test Images off of D30 IR
+
+- Test Images off of old Fuji point and shoot F31
+
+- Test Images off of old Fuji point and shoot F200
+
+- Make sure that if you hit "99" in a filename that the process chokes. This almost certainly means there was a problem....
+
+- Test Movies off 5D
+
+- Test Movies off 5DII
+
+- Test Movies off S90
+
+- Test Movies off S100
+
+
+## Someday/Maybe Items
+
+- Setup so the script will log an error if it can't make a directory. 
+
+- Setup test to explicitly check for croak if it can't make a directory. 
+
+- Create a test that make sure that the file comparison will choke the script if the files aren't identical. Right now, this is tied into the code in a way that can't be easily tested. 
+
+- Create a test to make sure that at least one input dir exists. 
+
+- Add explicit test for what happens if you try to run a file that doesn't have a date/time stamp that you are looking for. The code is setup to croak, but that needs to be tested. 
+

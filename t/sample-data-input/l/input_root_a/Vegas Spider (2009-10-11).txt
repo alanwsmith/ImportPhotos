@@ -1,0 +1,70 @@
+---
+AudioCodec: ''
+AudioSampleCount: 396864
+AudioSampleRate: 11024
+AutoBracketing: Off
+AvgBytesPerSec: 11024
+BitDepth: 24
+BitsPerSample: 8
+BlurWarning: None
+Compression: MJPG
+Copyright: ''
+CreateDate: 2009:10:11 19:59:04
+DateTimeOriginal: 2009:10:11 19:59:04
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/l/input_root_a
+Duration: 0:00:35
+Encoding: Microsoft PCM
+ExifToolVersion: '8.77'
+ExposureWarning: Good
+FileModifyDate: 2012:03:24 09:30:23-04:00
+FileName: Vegas Spider (2009-10-11).avi
+FilePermissions: rwxr-xr-x
+FileSize: 40 MB
+FileType: AVI
+FlashExposureComp: 0
+FocusMode: Auto
+FocusWarning: Good
+FrameCount: 1080
+FrameRate: 30
+FujiFlashMode: Off
+ImageHeight: 480
+ImageHeight (1): 480
+ImageLength: 921600
+ImageSize: 640x480
+ImageWidth: 640
+ImageWidth (1): 640
+InternalSerialNumber: FC  A5098114     592D32353432 2009:06:09 C09320315AFA
+MIMEType: video/x-msvideo
+Macro: Off
+Make: FUJIFILM
+MaxDataRate: 1144 kB/s
+Model: FinePix F200EXR
+ModifyDate: 2009:10:11 19:59:04
+NumChannels: 1
+NumColors: Use BitDepth
+NumImportantColors: All
+PictureMode: Auto
+PixelsPerMeterX: 0
+PixelsPerMeterY: 0
+Planes: 1
+Quality: 'NORMAL '
+Quality (1): 10000
+Quality (2): 10000
+SampleRate: 11024
+SampleSize: Variable
+SampleSize (1): 1 byte
+Sharpness: Normal
+SlowSync: Off
+StreamCount: 2
+StreamName: FUJIFILM AVI STREAM 0100
+StreamType: Video
+StreamType (1): Audio
+ThumbnailImage: !!perl/ref
+  =: Binary data 8919 bytes
+ThumbnailLength: 8919
+ThumbnailOffset: '738'
+Version: '0130'
+VideoCodec: mjpg
+VideoFrameCount: 1080
+VideoFrameRate: 30
+WhiteBalance: Auto

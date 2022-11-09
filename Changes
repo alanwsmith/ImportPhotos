@@ -1,0 +1,296 @@
+# Changes
+
+## 3.06
+
+- Added Sony 6300 parsing.
+
+
+---
+
+Prior notes in reversed order. 
+
+
+
+## 0.0101
+
+- Added tests to make sure directories exist properly and are the correct type. 
+
+- Added in a new require_framework attribute for the main Moose object. 
+
+- Upgraded the Framework to 2.0602. This is the one that handles substitution in the config ini items that are arrays.
+
+- Create the "outputs" directory that will store all the individual testing outputs. 
+
+- Updated the testing .ini files so they point to the "outputs" directory for testing. 
+
+- Added tests to make sure that the outputs dir works if there is just one or if there are two items defined. 
+
+
+## 0.0102
+
+- Setup all tests to use "use ImportPhotos;" instead of "BEGIN { use_ok( 'ImportPhotos' ); }". This just makes sure the tests fail hard early if the module isn't there for some reason.
+
+- Making sure that input directories are not inside output directories and vice versa. 
+
+
+## 0.0103
+
+- Added example data. 
+
+- Moved input and output test dirs under 't/test-data'. This directory is created and blown away during each test setup and tear down. 
+
+## 0.0104
+
+- Setup TestHelper so that it can copy in example data. 
+
+- Setup TestHelper to copy over the first set of example data by default. 
+
+## 0.0105
+
+- Setup the first example to only have one file in it so it copies over faster. 
+
+- Added a set of valid photo extensions. 
+
+- Added test to make sure you have the proper version of the framework being utilized.
+
+- Updated to AWSTools::Framework version 2.0605. 
+
+- Added a junk file to the first set of example data. 
+
+- Properly creating the initial list of photos to copy based on file extensions. 
+
+
+## 0.02
+
+- Upgraded to the latest version of TestHelper that makes setting up tests easier. 
+
+- Upgraded to framework version 2.08.
+
+- Updated TestHelper so that it's messages are output via tests instead of print statements. 
+
+- Ignoring the test data-input and data-output directories. 
+
+- Setting up the array of files to skip and validating the counts. 
+
+- Making sure that .DS_Store is not included in that list. 
+
+
+## 0.0201
+
+- Added test to make sure the correct images are being defined to be moved. 
+
+
+## 0.03
+
+- Temporarily removed jpg, crw and jpeg from the photo list. Explicit tests need to be added in for them. 
+
+- Added month strings that will be used for the directory path assembly. 
+
+- Doing the primary photo movement. 
+
+
+## 0.0301
+
+- Setup so that images don't overwrite (i.e. the conflict counter increments properly)
+
+
+## 0.0302
+
+- Standardized test clean up call on tests. 
+
+- Changed the name of the output config item from "output_root_dir" to "photo_output_root_dir". This will make it easier to differentiate from the movies when those get added into the mix. 
+
+- Added a notes.txt file over the sample-data-input directory to outline what each of the sample data sets contains. 
+
+
+## 0.0303
+
+- Added more sample data sets from the S90 and the S100. Including movie files. 
+
+	
+## 0.0304
+
+- Added a helper script 't/exif-report-helper.pl' that shows key EXIF data for all the file in the sample directories. This makes it easier to explicitly set updates when needed. 
+
+
+## 0.0305
+
+- Updated TestHelper so that it cleans out the data-input directory before copying in a new sample. 
+
+- Added support for jpgs
+
+- Added test the verifies jpgs. 
+
+
+## 0.04
+
+- Added support for pulling .MOV files to a video directory. 
+
+- New 'video_output_root_dir' required in the config ini file. 
+
+
+## 0.0401
+
+- Just added test to make sure videos with the same time stamp don't overwrite each other. 
+
+
+## 0.05
+
+- Added functionality so that the conflict number will increment for files regardless of type. 
+
+
+## 1.0
+
+- Added file comparison to make sure that the output files are identical to the source file. (There isn't a test for this yet. Need to come up with a good way to run that test.)
+
+- Release of first version that has all the primary elements in place. 
+
+
+## 1.01
+
+- Added values to .git-attributes for things that shouldn't be exported when the project is deployed. 
+
+## 1.02
+
+- Added the method calls into the main sub so that the thing actually runs....
+
+## 1.0201
+
+- Added some direct console output so that you can see what's going on even when debug is not turned on. 
+
+## 1.03
+
+- Added test for the .CRW images from the Canon 10D.
+
+- Updated the date/time stamp parser so that it looks at multiple items to try to pull the value. This is necessary because there isn't one key that works for all the file types that you are working with. 
+
+
+## 1.04
+
+- Catching files that don't have dates in their EXIF data instead of choking. They are dropped in their own directory under the root output dir. 
+
+- Moved the file verification check to its own method. 
+
+- Add counters to show the files that were moved and how many don't have dates in them. 
+
+
+## 1.0401
+
+- Just added test for the Fuji FinePix f31.
+
+
+## 1.0402
+
+- Added images from the old D30 and G1.
+
+
+## 1.05
+
+- Setup so that the main script is just named "ImportPhotos". All the test scripts create an "ImportPhotos.pm" file to use. 
+
+
+## 1.0501
+
+- Setup .gitignore so that if a symlink to ImportPhotos.pm is left in place, it doesn't get added to the repo. 
+
+
+## 1.06
+
+- Pulled the AWSTools::Framework directly inside the ImportPhotos script. This way, it's a completely stand alone script. 
+
+
+## 1.07
+
+- Setup so the .ini file is found under the user's home directory ("~/Library/ImportPhotos/ImportPhotos.ini"). This is in making progress so the script itself can be pushed under /usr/local and run from there, but all it's supplemental parts can be elsewhere. Test files override this and call a local "ImportPhotosTest.ini" file. 
+
+
+## 1.0701
+
+- Pushed 'package main;' to the bottom of the script so that it works properly from there. 
+
+- Setup so when the main script runs that it puts the log files in /var/log/ImportPhotos/
+
+- Corrected issue with test that looks for missing .ini file. (Since a default one is in place, the test has to explicitly look for a bad file location.)
+
+- Corrected issue with test that looks for badly nested input and output directories.
+
+
+## 1.08
+
+- Changed over so files are copied directly from source and not stored in memory. 
+
+
+## 1.0801
+
+- Just cleaned up white space and some internal documentation notes. 
+
+
+## 2.0
+
+- Setup so that the output file counts are calculated on a per directory basis. This is done in a single hashref with directory names as the keys. 
+
+- Added functionality so that files are checked to see if they are duplicates. If so, they aren't copied into the archive. This is done by explicitly checking the source and potential destination file. 
+
+
+## 2.01
+
+- Cleaned up comments and white space. 
+
+- Added print messages for skipped files during the run to indicate what's going on. 
+
+
+## 2.02
+
+- Added sort to the list of files to process. This will make the logs easier to read through. 
+
+- Added counter to show the progress of the number of files that have been processed. 
+
+- Added a file to prevent running the script directly when you are in the development environment. This will prevent accidentally working on a production archive. 
+
+
+## 2.03
+
+- Added test and script updates to move .avi files. 
+
+## 2.0301
+
+- Added version number to the print string for the startup output so you can verify the version you are running. 
+
+- Changed the output to say "copied" instead of "moved" since that's more accurate. 
+
+
+## 2.0302
+
+- Setup so that the exif-report-helper script will make a full dump for each file with the same base filename and a .txt extension. This will keep you from having to do it manually for new files or file types. 
+
+
+## 2.04
+
+- Setup to deal with .png from Mac screen grabs. 
+
+
+## 2.05
+
+- Added test file set "n". This is for testing to make sure that if there are multiple "Missing_EXIF_Data" files with the same name that they don't overwrite each other. 
+
+
+## 2.0501
+
+- Added a one second delay in the startup after printing out the version number so that you can see it even if the script starts moving on a small set of files. 
+
+- Updated the command line output text to say "Copied..." instead of "Verified Move". That's a better description for what's going on. 
+
+
+## 2.06
+
+- Changed initial sleep time of script to two seconds for showing the version number. 
+
+- Updated the framework to the latest version. 
+
+- Setup so that if no input directories are found, the script croaks. 
+
+- Setup so that if more than one input directory is found, the script croaks. 
+
+- Switched sleep so that it's in the main call instead of the BUILD. This prevents it from pausing all the tests. 
+
+

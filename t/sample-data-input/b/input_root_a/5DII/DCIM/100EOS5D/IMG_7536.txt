@@ -1,0 +1,343 @@
+---
+AEBAutoCancel: On
+AEBBracketValue: '0'
+AEBSequence: 0,-,+
+AESetting: AE Lock
+AFAreaHeights: 101 101 74 101 101 101 74 101 131
+AFAreaMode: Single-point AF
+AFAreaWidths: 84 84 101 84 84 84 101 84 123
+AFAreaXPositions: -1173 -561 0 561 1173 561 0 -561 0
+AFAreaYPositions: 0 280 501 280 0 -280 -501 -280 0
+AFAssistBeam: Emits
+AFImageHeight: 3744
+AFImageWidth: 5616
+AFMicroAdjMode: Disable
+AFMicroAdjValue: 0
+AFMicroadjustment: Disable; 0; 0; 0; 0
+AFOnAELockButtonSwitch: Disable
+AFPointAreaExpansion: Disable
+AFPointSelectionMethod: Multi-controller direct
+AFPointsInFocus: (none)
+AFPointsSelected: '8'
+AddOriginalDecisionData: On
+Aperture: '4.0'
+ApertureValue: '4.0'
+Artist: ''
+AspectRatio: 3:2
+AssignFuncButton: LCD brightness
+AutoExposureBracketing: Off
+AutoISO: '100'
+AutoLightingOptimizer: Standard
+AutoLightingOptimizer (1): Standard
+BaseISO: '1600'
+BitsPerSample: 8 8 8
+BitsPerSample (1): 16 16 16
+BlackMaskBottomBorder: 0
+BlackMaskLeftBorder: 0
+BlackMaskRightBorder: 0
+BlackMaskTopBorder: 0
+BlueBalance: 1.935547
+BracketMode: Off
+BracketShotNumber: 0
+BracketValue: 0
+BulbDuration: 0
+CameraOrientation: Horizontal (normal)
+CameraTemperature: 23 C
+CameraTemperature (1): 23 C
+CameraType: EOS High-end
+CanonExposureMode: Aperture-priority AE
+CanonFirmwareVersion: Firmware Version 2.0.4
+CanonFlashMode: Off
+CanonImageHeight: 3744
+CanonImageSize: Unknown (-1)
+CanonImageType: Canon EOS 5D Mark II
+CanonImageWidth: 5616
+CanonModelID: EOS 5D Mark II
+CircleOfConfusion: 0.031 mm
+ColorDataVersion: 6 (50D/5DmkII)
+ColorSpace: sRGB
+ColorSpace (1): sRGB
+ColorTempAsShot: 4432
+ColorTempAuto: 4432
+ColorTempCloudy: 6000
+ColorTempDaylight: 5200
+ColorTempFlash: 6108
+ColorTempFluorescent: 3674
+ColorTempKelvin: 5211
+ColorTempMeasured: 4108
+ColorTempShade: 7000
+ColorTempTungsten: 3200
+ColorTemperature: 5200
+ColorTemperature (1): 5200
+ColorTone: Normal
+ColorToneFaithful: 0
+ColorToneLandscape: 0
+ColorToneNeutral: 0
+ColorTonePortrait: 0
+ColorToneStandard: 0
+ColorToneUserDef1: n/a
+ColorToneUserDef2: 0
+ColorToneUserDef3: 0
+ComponentsConfiguration: Y, Cb, Cr, -
+Compression: JPEG (old-style)
+Compression (1): Uncompressed
+Compression (2): JPEG (old-style)
+ContinuousDrive: Continuous
+Contrast: Normal
+ContrastFaithful: 0
+ContrastLandscape: 0
+ContrastMonochrome: 0
+ContrastNeutral: 0
+ContrastPortrait: 0
+ContrastStandard: 0
+ContrastUserDef1: 0
+ContrastUserDef2: 0
+ContrastUserDef3: 0
+ControlMode: Camera Local Control
+Copyright: 'Copyright: Alan W. Smith'
+CreateDate: 2012:02:06 20:52:00
+CropBottomMargin: 16
+CropLeftMargin: 24
+CropRightMargin: 24
+CropTopMargin: 16
+CroppedImageHeight: 1856
+CroppedImageWidth: 2784
+CustomPictureStyleFileName: ''
+CustomRendered: Normal
+DateTimeOriginal: 2012:02:06 20:52:00
+DialDirectionTvAv: Normal
+DigitalGain: 0
+DigitalZoom: None
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/b/input_root_a/5DII/DCIM/100EOS5D
+DirectoryIndex: 100
+DriveMode: Continuous Shooting
+DustRemovalData: !!perl/scalar:SCALAR "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+EasyMode: Manual
+ExifByteOrder: Little-endian (Intel, II)
+ExifImageHeight: 1856
+ExifImageWidth: 2784
+ExifToolVersion: '8.77'
+ExifVersion: '0221'
+ExposureCompensation: '0'
+ExposureCompensation (1): '0'
+ExposureLevelIncrements: 1/3 Stop
+ExposureMode: Auto
+ExposureProgram: Aperture-priority AE
+ExposureTime: 1/3200
+ExposureTime (1): 1/3444
+ExposureTime (2): 1/3158
+FNumber: '4.0'
+FNumber (1): '4'
+FNumber (2): '4'
+FOV: 22.7 deg
+FileIndex: 7536
+FileModifyDate: 2012:03:10 10:47:32-05:00
+FileName: IMG_7536.CR2
+FileNumber: 100-7536
+FilePermissions: rwxr-xr-x
+FileSize: 9.0 MB
+FileType: CR2
+FilterEffectMonochrome: None
+FilterEffectUserDef1: Red
+FilterEffectUserDef2: None
+FilterEffectUserDef3: None
+FirmwareVersion: 2.0.4
+Flash: Off, Did not fire
+FlashActivity: 0
+FlashBits: (none)
+FlashExposureComp: '0'
+FlashExposureLock: Off
+FlashGuideNumber: 0
+FlashMeteringMode: Off
+FlashSyncSpeedAv: 1/200-1/60 Auto
+FlashpixVersion: '0100'
+FocalLength: 92.0 mm
+FocalLength (1): 92 mm
+FocalLength (2): 92 mm
+FocalLength35efl: '92.0 mm (35 mm equivalent: 89.8 mm)'
+FocalPlaneResolutionUnit: inches
+FocalPlaneXResolution: 1908.156271
+FocalPlaneYResolution: 1937.36952
+FocalUnits: 1/mm
+FocusDistanceLower: 2.11 m
+FocusDistanceUpper: 2.49 m
+FocusMode: One-shot AF
+FocusRange: Not Known
+FocusingScreen: Eg-A
+GPSVersionID: 2.2.0.0
+HighISONoiseReduction: Standard
+HighISONoiseReduction (1): Standard
+HighlightTonePriority: Disable
+HighlightTonePriority (1): Off
+HyperfocalDistance: 68.73 m
+ISO: 1600
+ISO (1): '1600'
+ISO (2): '1600'
+ISOExpansion: Off
+ISOSpeedIncrements: 1/3 Stop
+ImageHeight: 3744
+ImageHeight (1): 312
+ImageSize: 2784x1856
+ImageWidth: 5616
+ImageWidth (1): 468
+InternalSerialNumber: ''
+InteropIndex: R98 - DCF basic file (sRGB)
+InteropVersion: '0100'
+Lens: 24.0 - 105.0 mm
+Lens35efl: '24.0 - 105.0 mm (35 mm equivalent: 23.4 - 102.5 mm)'
+LensAFStopButton: AF stop
+LensDriveNoAF: Focus search on
+LensID: Canon EF 24-105mm f/4L IS
+LensModel: EF24-105mm f/4L IS USM
+LensType: Canon EF 24-105mm f/4L IS
+LensType (1): Canon EF 24-105mm f/4L IS
+LightValue: '11.6'
+LiveViewShooting: Off
+LongExposureNoiseReduction: Off
+LongExposureNoiseReduction2: Off
+LongFocal: 105 mm
+LongFocal (1): 105 mm
+MIMEType: image/x-canon-cr2
+MacroMode: Normal
+Make: Canon
+ManualFlashOutput: n/a
+MaxAperture: '4'
+MeasuredEV: '11.75'
+MeasuredEV2: 11.125
+MeasuredRGGB: 535 1024 1024 464
+MeteringMode: Evaluative
+MeteringMode (1): Multi-segment
+MinAperture: '23'
+MirrorLockup: Disable
+Model: Canon EOS 5D Mark II
+ModifyDate: 2012:02:06 20:52:00
+NDFilter: n/a
+NumAFPoints: 9
+OpticalZoomCode: n/a
+Orientation: Horizontal (normal)
+OriginalDecisionData: !!perl/ref
+  =: "ÿÿÿÿ\x03\0\0\0\x14\0\0\0nåôÈ÷­¡nRç\x1A\x01¼\x9Ey\x83\x9Fv\x82\x95\x14\0\0\0M:¿å\N«}\x7Fº\x1DKuABÃýQ
+    \x1A\b(\x02\0\0\x04\0\0\0\x8E\r®N\x03\0\0\0\x1C\x83\x8F\0\x02\0\0\0\x01\0\0\0ªN!6×eÛh\b\0\0\0\x01\0\0\0\x04\0\0\0%9\x91\\\x14\0\0\0À¢<3i\x1C\x96\x99\x15\x116B\aHè\x8FÛ}í\b\x01\0\0\0f,)\0´Vf\0\x02\0\0\0\x04\0\0\0²¾\x02É\x14\0\0\0\x92ù#I¨hLÕQ7\\nç -bR\x02P½\n\0\0\0\0\0\0\0n\0\0\0r\0\0\0Z\x05\0\0Ð\x05\0\0\x04\a\0\04\x0F\0\0\b\x95\0\0D¥\0\0j\b\0\0¯Ô\0\0\x02\0\0\0´Ô\0\0\x02\0\0\0aÌ\e\0\x02\0\0\0d,)\0\x02\0\0\0\x1A\x83\x8F\0\x02\0\0\0\x03\0\0\0\x04\0\0\0\x86.\x9AÆ\x14\0\0\00Û+\"äÃÃ\x1D¼L±á>M(\eQKZó\x01\0\0\0n\0\0\0\x04\0\0\0\x04\0\0\0\x04\0\0\0C8T:\x14\0\0\0\x10avÂ\x83\x880[ê\x8Ez\x87¬Ob3\t³¬Ø\x01\0\0\0<¤\0\0\b\x01\0\0\x05\0\0\0\x04\0\0\0CQçü\x14\0\0\0\x81\x95.\x82\x0F\x82\x12\b0ª\x8C:\x9BP\x02\x01gOúÈ\x01\0\0\0Ì\x05\0\0\x04\0\0\0\x06\0\0\0\x04\0\0\0x\x128ó\x14\0\0\0'\x93\x83/¬!JyFtÝ\x1F$ªÿ¼(0R\x8D\x01\0\0\0®­\0\0\x01'\0\0\a\0\0\0\x04\0\0\0\x05\x9DLi\x14\0\0\0\x9AwµL\x14\v¯,\x98W\x9BºF\x99½aMT\r®\x01\0\0\0¶Ô\0\0«÷\x1A\0\b\0\0\0\x04\0\0\0\x98Qq
+    \x14\0\0\0{(Xi\aÌ\f\x9CzN;\0\x97´2\x0E`\x1DSf\x01\0\0\0dÌ\e\0\0`\r\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+OriginalDecisionDataOffset: '3284'
+OriginalImageHeight: 3744
+OriginalImageWidth: 5616
+OwnerName: 5dii
+PeripheralLighting: On
+PeripheralLightingSetting: On
+PeripheralLightingValue: 50
+PhotometricInterpretation: RGB
+PictureStyle: Standard
+PictureStyle (1): Standard
+PlanarConfiguration: Chunky
+PreviewImage: !!perl/ref
+  =: Binary data 1767343 bytes
+PreviewImageLength: 1767343
+PreviewImageStart: '54452'
+Quality: RAW
+RawImageSegmentation: 3 1440 1296
+RawJpgSize: Large
+RawMeasuredRGGB: 119301 222675 222404 105404
+RecordMode: CR2
+RedBalance: 2.032227
+ResolutionUnit: inches
+RowsPerStrip: 312
+SRAWQuality: sRAW2 (sRAW)
+SafetyShift: Enable (Tv/Av)
+SamplesPerPixel: 3
+Saturation: Normal
+SaturationFaithful: 0
+SaturationLandscape: 0
+SaturationNeutral: 0
+SaturationPortrait: 0
+SaturationStandard: 0
+SaturationUserDef1: n/a
+SaturationUserDef2: 0
+SaturationUserDef3: 0
+ScaleFactor35efl: '1.0'
+SceneCaptureType: Standard
+SelfTimer: Off
+SensorBlueLevel: 0
+SensorBottomBorder: 1863
+SensorHeight: 1872
+SensorLeftBorder: 12
+SensorRedLevel: 0
+SensorRightBorder: 2795
+SensorTopBorder: 8
+SensorWidth: 2808
+SequenceNumber: 0
+SerialNumber: '1821100533'
+SerialNumberFormat: Format 2
+SetButtonWhenShooting: Image playback
+Sharpness: 3
+SharpnessFaithful: 0
+SharpnessFrequency: n/a
+SharpnessLandscape: 4
+SharpnessMonochrome: 3
+SharpnessNeutral: 0
+SharpnessPortrait: 2
+SharpnessStandard: 3
+SharpnessUserDef1: 3
+SharpnessUserDef2: 3
+SharpnessUserDef3: 3
+ShootingMode: Aperture-priority AE
+ShortFocal: 24 mm
+ShortFocal (1): 24 mm
+ShutterButtonAFOnButton: AE lock/Metering + AF start
+ShutterSpeed: 1/3200
+ShutterSpeedValue: 1/3158
+SlowShutter: None
+StripByteCounts: 6706872
+StripByteCounts (1): 876096
+StripOffsets: '2698340'
+StripOffsets (1): '1821796'
+SubSecCreateDate: 2012:02:06 20:52:00.76
+SubSecDateTimeOriginal: 2012:02:06 20:52:00.76
+SubSecModifyDate: 2012:02:06 20:52:00.76
+SubSecTime: '76'
+SubSecTimeDigitized: '76'
+SubSecTimeOriginal: '76'
+SuperimposedDisplay: On
+TargetAperture: '4'
+TargetExposureTime: 1/3251
+ThumbnailImage: !!perl/ref
+  =: Binary data 9989 bytes
+ThumbnailImageValidArea: 0 159 7 112
+ThumbnailLength: 9989
+ThumbnailOffset: '44460'
+ToneCurve: Standard
+ToningEffectMonochrome: None
+ToningEffectUserDef1: None
+ToningEffectUserDef2: None
+ToningEffectUserDef3: None
+UserComment: ''
+UserDef1PictureStyle: Monochrome
+UserDef2PictureStyle: Standard
+UserDef3PictureStyle: Standard
+VRDOffset: 0
+ValidAFPoints: 9
+WBBracketMode: Off
+WBBracketValueAB: 0
+WBBracketValueGM: 0
+WBShiftAB: 0
+WBShiftGM: 0
+WB_RGGBLevels: 2081 1024 1024 1982
+WB_RGGBLevelsAsShot: 2081 1024 1024 1982
+WB_RGGBLevelsAuto: 2081 1024 1024 1982
+WB_RGGBLevelsCloudy: 2394 1024 1024 1533
+WB_RGGBLevelsDaylight: 2222 1024 1024 1699
+WB_RGGBLevelsFlash: 2411 1024 1024 1517
+WB_RGGBLevelsFluorescent: 1971 1058 1058 2567
+WB_RGGBLevelsKelvin: 2222 1024 1024 1699
+WB_RGGBLevelsMeasured: 1992 1023 1024 2112
+WB_RGGBLevelsShade: 2558 1024 1024 1406
+WB_RGGBLevelsTungsten: 1717 1112 1112 2896
+WhiteBalance: Auto
+WhiteBalance (1): Auto
+WhiteBalance (2): Auto
+WhiteBalanceBlue: 0
+WhiteBalanceRed: 0
+XResolution: 72
+YResolution: 72
+ZoomSourceWidth: 0
+ZoomTargetWidth: 0

@@ -1,0 +1,83 @@
+---
+AudioBitsPerSample: 16
+AudioChannels: 1
+AudioFormat: chan
+AudioFormat (1): sowt
+AudioSampleRate: 44100
+AvgBitrate: 9.58 Mbps
+Balance: 0
+BitDepth: 24
+CompatibleBrands: qt  , CAEP
+CompressorID: avc1
+CompressorVersion: CanonAVC0001
+CreateDate: 2012:03:10 15:45:54
+CurrentTime: 0 s
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/d/input_root_a/S90/DCIM/147___03
+Duration: 7.47 s
+ExifToolVersion: '8.77'
+FileModifyDate: 2012:03:10 10:47:26-05:00
+FileName: MVI_4354.MOV
+FilePermissions: rwxr-xr-x
+FileSize: 8.5 MB
+FileType: MOV
+GraphicsMode: srcCopy
+HandlerClass: Data Handler
+HandlerClass (1): Media Handler
+HandlerClass (2): Data Handler
+HandlerClass (3): Media Handler
+HandlerType: Alias Data
+HandlerType (1): Video Track
+HandlerType (2): Alias Data
+HandlerType (3): Audio Track
+ImageHeight: 480
+ImageSize: 640x480
+ImageWidth: 640
+MIMEType: video/quicktime
+MajorBrand: Apple QuickTime (.MOV/QT)
+MatrixStructure: 1 0 0 0 1 0 0 0 1
+MatrixStructure (1): 1 0 0 0 1 0 0 0 1
+MatrixStructure (2): 1 0 0 0 1 0 0 0 1
+MediaCreateDate: 2012:03:10 15:45:54
+MediaCreateDate (1): 2012:03:10 15:45:54
+MediaDuration: 7.47 s
+MediaDuration (1): 7.47 s
+MediaHeaderVersion: 0
+MediaHeaderVersion (1): 0
+MediaModifyDate: 2012:03:10 15:45:54
+MediaModifyDate (1): 2012:03:10 15:45:54
+MediaTimeScale: 44100
+MediaTimeScale (1): 3000
+MinorVersion: 2007.9.0
+ModifyDate: 2012:03:10 15:45:54
+MovieDataSize: 8940544
+MovieHeaderVersion: 0
+NextTrackID: 3
+OpColor: 0 0 0
+PosterTime: 0 s
+PreferredRate: 1
+PreferredVolume: 100.00%
+PreviewDuration: 0 s
+PreviewTime: 0 s
+Rotation: 0
+SelectionDuration: 0 s
+SelectionTime: 0 s
+SourceImageHeight: 480
+SourceImageWidth: 640
+TimeScale: 3000
+TrackCreateDate: 2012:03:10 15:45:54
+TrackCreateDate (1): 2012:03:10 15:45:54
+TrackDuration: 7.47 s
+TrackDuration (1): 7.47 s
+TrackHeaderVersion: 0
+TrackHeaderVersion (1): 0
+TrackID: 1
+TrackID (1): 2
+TrackLayer: 0
+TrackLayer (1): 0
+TrackModifyDate: 2012:03:10 15:45:54
+TrackModifyDate (1): 2012:03:10 15:45:54
+TrackVolume: 0.00%
+TrackVolume (1): 100.00%
+VideoFrameRate: 30
+XResolution: 72
+YResolution: 72

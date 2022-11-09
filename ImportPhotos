@@ -1,0 +1,1847 @@
+#!/usr/bin/perl
+
+=head1 ImportPhotos
+
+=head2 Description
+
+This is your personal tool to import photos from cards or directories. 
+
+- It will look through any number of input directories and pull 
+everything it can find from them. 
+
+- You can have multiple output directories. If one or more doesn't exist, 
+the script will choke processing before it starts. 
+
+- Regardless of file type, each gets their own unique ID. This
+is done by always including a "conflict number". 
+
+- Files that don't have a date that can be read are dropped into
+a "Missing_EXIF_Date" folder. 
+
+- PNG screen grab files are moved into the 'Missing_EXIF_Date' dir
+because they only have a modified time available. This means if they 
+get updated and sent back through, they would end up in the wrong place.
+It will be the responsibility of whatever process creates the pngs
+to name them properly. 
+
+
+=head2 Configuration
+
+The default config file is located in:
+
+  ~/configs/ImportPhotos/config.ini	
+
+=head2 TODO
+
+- Add a conflict number to the files that don't have exif data. 
+
+- Make sure you handle conflict number that go above 999. It's unlikely you'll see them, but you want to take care of them if you get them. 
+
+=cut
+
+
+
+################################################################################
+
+package ImportPhotos;
+
+our $VERSION = "3.06";
+$VERSION = eval $VERSION;
+our $SCRIPT_VERSION_HOLD = $VERSION;
+
+
+use Moose;
+use MooseX::StrictConstructor;
+use MooseX::SemiAffordanceAccessor;
+use namespace::autoclean;
+use Carp;
+
+use Modern::Perl;
+# use AWSTools::Framework;
+use Image::ExifTool qw(:Public);
+use File::Find;
+use File::Path qw(make_path);
+
+use File::Compare;
+use File::HomeDir;
+use File::Spec::Functions qw(catfile);
+use File::Copy;
+
+use FindBin qw ($Bin);
+
+
+################################################################################
+
+has "ini_file_path" => (
+	is => "rw",
+	isa => "Str",
+	default => sprintf("%s/configs/ImportPhotos/config.ini", File::HomeDir->my_home)
+);
+
+
+has 'input_root_dirs' => (
+	is => 'rw',
+	isa => 'ArrayRef',
+);
+
+has 'photo_output_root_dirs' => (
+	is => 'rw',
+	isa => 'ArrayRef',
+);
+
+has 'video_output_root_dirs' => (
+	is => 'rw',
+	isa => 'ArrayRef',
+);
+
+has 'f' => (
+	is => 'rw',
+	does => "AWSTools::Framework",
+);
+
+has "required_framework_version" => (
+	is => "rw",
+	default => 2.0901
+);
+
+has "number_of_photos_to_process" => (
+	is => "rw",
+	isa => "Int",
+	default => 0,
+);
+
+has "number_of_files_to_skip" => (
+	is => "rw",
+	isa => "Int",
+	default => 0,
+);
+
+
+has "valid_photo_extensions" => (
+	is => "rw",
+	isa => "ArrayRef",
+	default => sub { [
+	  'arw',
+		'avi',
+		'cr2',
+		'crw',
+		'jpg', 
+		'mov',
+		'mp4',
+		'png'
+	]}
+);
+
+
+has "list_of_photos_to_move" => (
+	is => "rw",
+	isa => "ArrayRef",
+	default => sub {[]},
+);
+
+
+has "list_of_files_to_skip" => (
+	is => "rw",
+	isa => "ArrayRef",
+	default => sub {[]}
+);
+
+
+### Setup strings to append for the months
+has "month_strings" => (
+	is => "rw",
+	isa => "HashRef",
+	default => sub { {
+		"01" => "Jan",
+		"02" => "Feb",
+		"03" => "Mar",
+		"04" => "Apr",
+		"05" => "May",
+		"06" => "Jun",
+		"07" => "Jul",
+		"08" => "Aug",
+		"09" => "Sep",
+		"10" => "Oct",
+		"11" => "Nov",
+		"12" => "Dec",
+	}}
+);
+
+
+has "counter_for_duplicate_files" => (
+	is => "rw",
+	isa => "Int",
+	default => 0
+);
+
+
+has "counters" => (
+	is => "rw",
+	isa => "HashRef",
+	default => sub {{}}
+);
+
+
+### create an output display counter
+has "files_processed_counter" => (
+	is => "rw",
+	isa => "Int",
+	default => 0
+);
+
+
+
+################################################################################
+# BUILD
+################################################################################
+
+sub BUILD {
+	
+	### Pull in the self object
+	my $self = shift;
+	
+	### Load in the framework using the ImportPhotos.ini file
+	$self->set_f( AWSTools::Framework->new( ini_file => $self->ini_file_path ) );
+	
+	
+	### Verify framework version
+	$self->verify_framework_version();
+	
+	$self->f->log->info("Starting ImportPhotos run.");
+	
+	### Pull in the directories from the config file.
+	$self->import_dirs();
+	
+	### Make sure all the output dirs exist.
+	$self->verify_output_dirs();
+	
+	### Create the list of photos to move
+	$self->preflight_setup();
+	
+	
+}
+
+
+
+
+################################################################################
+=head2 copy_photos_to_destinations
+
+This is the process that actually moves the individaul photos. 
+
+	
+=cut
+################################################################################
+
+sub copy_photos_to_destinations {
+
+	### Pull in object
+	my ($self) = @_;
+	
+	### output debugging message
+	$self->f->log->debug(sprintf('Starting: copy_photos_to_destinations()'));
+	
+	say "Starting Copy Run.";
+	
+	### Create a variable for the total number of files. 
+	my $total_files_to_process = @{$self->list_of_photos_to_move};
+	
+	### Loop thoough the photos
+	SOURCE_FILE_LOOP: for my $source_photo_path (sort @{$self->list_of_photos_to_move}) {
+		
+		### Increment the files_processed_counter 
+		$self->set_files_processed_counter( ($self->files_processed_counter + 1));
+		
+		say sprintf("Processing file: %s of: %s", $self->files_processed_counter, $total_files_to_process);
+		
+		
+		### Pull out the file extension
+		my ($local_file_extension) = $source_photo_path =~ m{\.([^\.]+)$}ms;
+		$local_file_extension = lc($local_file_extension);
+		
+		### Pull in the source file basename
+		my ($source_file_base_name) = $source_photo_path =~ m{ ([^/]+) $}xms;
+		
+		
+		### Set the output directory array to use based on if it's a .mov or .avi file or not
+		my @output_dirs_to_use = ($local_file_extension =~ m{mov|avi|mp4}) ? @{$self->video_output_root_dirs} : @{$self->photo_output_root_dirs};
+		
+		### Grab the EXIF data.
+		my $exif_info = ImageInfo($source_photo_path);
+		
+		### Create a datahash to hold the date/time values
+		my %img_datetime_stamp;
+
+		
+		### Run through the possible ways to pull the data and time values
+		if(defined($exif_info->{CreateDate}) && ($exif_info->{CreateDate} =~ m{ (\d\d\d\d):(\d\d):(\d\d)\s+(\d\d):(\d\d):(\d\d) }xms)) {
+			$img_datetime_stamp{year} = $1;
+			$img_datetime_stamp{month} = $2;
+			$img_datetime_stamp{day} = $3;
+			$img_datetime_stamp{hour} = $4;
+			$img_datetime_stamp{minute} = $5;
+			$img_datetime_stamp{second} = $6;
+		}
+		elsif(defined($exif_info->{DateTimeOriginal}) && ($exif_info->{DateTimeOriginal} =~ m{ (\d\d\d\d):(\d\d):(\d\d)\s+(\d\d):(\d\d):(\d\d) }xms)) {
+			$img_datetime_stamp{year} = $1;
+			$img_datetime_stamp{month} = $2;
+			$img_datetime_stamp{day} = $3;
+			$img_datetime_stamp{hour} = $4;
+			$img_datetime_stamp{minute} = $5;
+			$img_datetime_stamp{second} = $6;			
+		}
+		elsif(defined($exif_info->{"Create Date"}) && ($exif_info->{"Create Date"} =~ m{ (\d\d\d\d):(\d\d):(\d\d)\s+(\d\d):(\d\d):(\d\d) }xms)) {
+			$img_datetime_stamp{year} = $1;
+			$img_datetime_stamp{month} = $2;
+			$img_datetime_stamp{day} = $3;
+			$img_datetime_stamp{hour} = $4;
+			$img_datetime_stamp{minute} = $5;
+			$img_datetime_stamp{second} = $6;			
+		}
+		
+
+		### If none is found move it to the Missing_EXIF_Date dir
+		else {
+			
+			for my $missing_date_root_path (@output_dirs_to_use) {
+				
+				my $missing_data_dir_path = sprintf("%s/Missing_EXIF_Date", $missing_date_root_path);
+				
+				### Make sure it exists
+				$self->f->verify_dir_exists($missing_data_dir_path);
+				
+				my $missing_date_file_path = sprintf("%s/%s", $missing_data_dir_path, $source_file_base_name);
+				
+				### See if the file already exists at the path
+				if(-e $missing_date_file_path) {
+					
+					$self->f->log->info(sprintf('File without EXIF already exist at: %s', "$missing_date_file_path"));
+					
+					### Create a loop for a new conflict number
+					MISSING_EXIF_CONFLICT: for my $missing_conflit_num (2..999) {
+						
+						### Create a tmp file name to check against
+						(my $tmp_missing_conflict_file_path = $missing_date_file_path) =~ s{ \. (\w+) $}{-$missing_conflit_num.$1}xms;
+						
+						$self->f->log->debug(sprintf('CHECK conflict path: %s', $tmp_missing_conflict_file_path));
+						
+						### See if the new file exist. 
+						if(!-e $tmp_missing_conflict_file_path) {
+							
+							### Update the file path and drop out of the loop
+							$self->f->log->info(sprintf('Set new output path to: %s', $tmp_missing_conflict_file_path));
+							$missing_date_file_path = $tmp_missing_conflict_file_path;
+							last MISSING_EXIF_CONFLICT;
+						}
+					}
+				}
+				
+				
+				### Do the actual file copy. 
+				copy($source_photo_path, $missing_date_file_path);
+				
+				$self->verify_copied_file(
+					{
+						output_dir_root => $missing_date_root_path, 
+						source_file => $source_photo_path, 
+						dest_file => $missing_date_file_path,
+					}
+				);
+				
+				say "Copied missing date file: $missing_date_file_path";
+				
+				### Increment the counter for the file moved.
+				$self->counters->{$missing_date_root_path}->{missing_datetime} ++;
+				
+			}
+			
+			
+			
+			### Jump to the next source file since you can't do anything else with this one.
+			next SOURCE_FILE_LOOP;
+		}
+		
+		
+		
+		### Croak if the year is less than 1000 for some reason. That should never happen.
+		if($img_datetime_stamp{year} < 1000) { 
+			croak "Weird year defined '$img_datetime_stamp{year}' for $source_photo_path";
+		}
+		
+		
+		### Define the sub_path to the directory to use
+		my $sub_destination_dir = sprintf(
+			"%s/%s-%s/%s", 
+			$img_datetime_stamp{year}, 
+			sprintf("%02d", $img_datetime_stamp{month}), 
+			$self->month_strings->{$img_datetime_stamp{month}},
+			sprintf("%02d", $img_datetime_stamp{day}), 
+		);
+		
+		
+		### Loop through the root destination directory list
+		OUTPUTPATHLOOP: for my $output_dest_dir_root_path (@output_dirs_to_use) {
+			
+			### Define the path for the directory to use. (based on if extension if for mov or not)
+			my $full_output_dir_path = sprintf("%s/%s", $output_dest_dir_root_path, $sub_destination_dir);
+			
+			### Make sure the output destination dirtory exists
+			if(!-e $full_output_dir_path) {
+				### If it doesn't attempt to make it
+				if(make_path($full_output_dir_path)) {
+					$self->f->log->info("Created directory: $full_output_dir_path");
+					# say "Created new directory: $full_output_dir_path";
+				}
+				else {
+					$self->f->log->error("Could not create directory: $full_output_dir_path");
+					croak "Could not make output directory: $full_output_dir_path";
+				}
+			}
+			
+			
+			### Create a loop for the conflict number
+			CONFLICTLOOP: for my $photo_conflict_number (1..999) {
+				
+				### Create the base filename to use
+				my $base_output_file_name = sprintf(
+					"aws-%s%s%s--%s%s-%sa",
+					$img_datetime_stamp{year}, 
+					sprintf("%02d", $img_datetime_stamp{month}),
+					sprintf("%02d", $img_datetime_stamp{day}),
+					sprintf("%02d", $img_datetime_stamp{hour}),
+					sprintf("%02d", $img_datetime_stamp{minute}),
+					sprintf("%02d", $photo_conflict_number)
+				);
+				
+				
+				### Loop thorough the possible output extensions to make sure
+				### the conflict number isn't take by any of them
+				for my $extension_to_check (@{$self->valid_photo_extensions}) {
+					
+					### Create a test file path with the extension
+					my $file_path_to_examine = sprintf("%s/%s.%s", $full_output_dir_path, $base_output_file_name, $extension_to_check);
+					
+					### jump to the next conflict number if it matches
+					if(-e $file_path_to_examine) {
+						
+						$self->f->log->debug(sprintf('Found existing file basename at: %s', $file_path_to_examine));
+						
+						### Now see if it's a duplicate
+						if(compare($source_photo_path, $file_path_to_examine) == 0) {
+							$self->f->log->info(sprintf("Already in archive: %s - At: %s", $source_photo_path, $file_path_to_examine));
+							
+							### Increment the duplicate file counter:
+							$self->counters->{$output_dest_dir_root_path}->{skipped_duplicates} ++;
+							
+							say "Found: $source_photo_path alredy archive at: $file_path_to_examine";
+							
+							next OUTPUTPATHLOOP;
+						}
+						
+						next CONFLICTLOOP;
+					}
+				}
+				
+				
+				### Define the filename to try
+				my $output_file_name = sprintf( "%s.%s",$base_output_file_name, $local_file_extension);
+				
+				### Define the full path for the output file to try
+				my $full_output_file_path = sprintf("%s/%s", $full_output_dir_path, $output_file_name);
+				
+				### Do the actual file copy. 
+				copy($source_photo_path, $full_output_file_path);
+				
+				$self->verify_copied_file(
+					{
+						output_dir_root => $output_dest_dir_root_path, 
+						source_file => $source_photo_path, 
+						dest_file => $full_output_file_path,
+					}
+				);
+	
+				last CONFLICTLOOP;
+			
+			}
+			
+			### Increment the counter for the file moved.
+			$self->counters->{$output_dest_dir_root_path}->{copied} ++;
+						
+		}	
+	
+	}
+	
+	return 1;
+	
+}
+
+
+
+
+################################################################################
+=head2 verify_copied_file
+
+Used to make sure that the source file and the destination files are
+identical. 
+
+=cut
+################################################################################
+
+sub verify_copied_file {
+
+	### Pull in object and the data hash
+	my ($self, $verification_details) = @_;
+	
+	### Pull the output path to check into it's own var to make it possible to examine
+	my $tmp_output_dir_string = $verification_details->{output_dir_root};
+	
+	### Make sure the files are identical
+	if (compare($verification_details->{source_file}, $verification_details->{dest_file}) == 0) {
+		
+		### Create a cut down name for the source file and dest file.
+		(my $cut_down_source_name = $verification_details->{source_file}) =~ s{ .*/ }{}xms;
+		(my $cut_down_dest_name = $verification_details->{dest_file}) =~ s{ $tmp_output_dir_string }{}xms;
+		
+		say "Copied and verifyed: $cut_down_source_name - To: $cut_down_dest_name";
+		
+		$self->f->log->info(sprintf("Copied and verifyed From: %s - To: %s", $verification_details->{source_file}, $verification_details->{dest_file}));
+		
+	}
+	else {
+		$self->f->log->error(sprintf("Did not make an exact copy of: %s - At: %s", $verification_details->{source_file}, $verification_details->{dest_file}));
+		croak sprintf("ERROR: Destination file is not identical to source: %s - Dest: %s", $verification_details->{source_file}, $verification_details->{dest_file});
+	}
+	
+}
+
+
+
+
+################################################################################
+=head2 preflight_setup
+
+This is what loads in the files to move and gets the basic array(s) setup.
+
+=cut
+################################################################################
+
+sub preflight_setup {
+
+	my ($self) = @_;
+	
+	$self->f->log->info("Running: preflight_setup()");
+	
+	say "Running preflight check.";
+	
+	### setup a file pattern for extensions to look for
+	
+	my $joined_extension_string = join("|", @{$self->valid_photo_extensions});
+	my $end_file_extension = qr{($joined_extension_string)$}i;
+	
+	
+	### define the local find sub routine
+	local *wanted_photos = sub {
+		
+		my $just_file_name = $_;
+		
+		### pull the full path
+		my $full_file_path = $File::Find::name;
+
+		### make sure it's not a directory
+		return if -d $full_file_path;
+		
+		### explicitly skip .DS_Store
+		return if $just_file_name eq '.DS_Store';
+		
+		{
+			
+			### See if it has a valid photo extension.
+			if($full_file_path =~ $end_file_extension) {
+			
+				### Add the file to the array.
+				push @{$self->list_of_photos_to_move}, $full_file_path;
+
+				$self->f->log->info("Found photo To process: $full_file_path");	
+			}
+
+			
+			### otherwise, add it to the skip list.	
+			else {
+				
+				### Add the file to the array.
+				push @{$self->list_of_files_to_skip}, $full_file_path;
+
+				$self->f->log->info("Skipping (extension): $full_file_path");
+			}
+		}	
+	};
+	
+
+	### Loop through the input directories. 
+	for my $input_dir_to_check (@{$self->input_root_dirs}) {
+		
+		### If the input exists, look into it. 
+		if(-e $input_dir_to_check) {
+			$self->f->log->info("Checking input dir: $input_dir_to_check");
+			
+			find(\&wanted_photos, $input_dir_to_check);
+		}
+		
+		### Otherwise show that it's missing
+		else {
+			$self->f->log->info("Skipping missing input dir: $input_dir_to_check");
+		}
+	}
+	
+	
+	### Now, update the number of photos to move.
+	$self->set_number_of_photos_to_process( scalar @{$self->list_of_photos_to_move} );
+	
+	### And the number of files to skip
+	$self->set_number_of_files_to_skip( scalar @{$self->list_of_files_to_skip} );
+	
+}
+
+
+
+
+
+
+################################################################################
+=head2 verify_output_dirs
+
+Used to make sure that all of the output directories defined in the .ini 
+file exist.
+
+Also makes sure that no input dirs are inside output dirs and vice versa
+
+=cut
+################################################################################
+
+sub verify_output_dirs {
+
+	my ($self) = @_;
+
+	### Loop through the photo output directories
+	for my $check_photo_output_dir (@{$self->photo_output_root_dirs}) {
+		
+		### Croak if it's missing
+		if(!-d $check_photo_output_dir) {
+			croak "ERROR: Missing output directory - $check_photo_output_dir";
+		}
+		
+		### Loop through the input directotries to check against them
+		for my $compare_input_dir (@{$self->input_root_dirs}) {
+			if($check_photo_output_dir =~ m{^$compare_input_dir}) {
+				croak sprintf("ERROR: Invalid photo_output_root_dir defined (%s). Can't be inside an 'input_root_dir'", $check_photo_output_dir);
+			}
+		}
+		
+		say "Verified dir: $check_photo_output_dir";
+	}
+	
+	### Loop through the video output directories
+	for my $check_video_output_dir (@{$self->video_output_root_dirs}) {
+		
+		### Croak if it's missing
+		if(!-d $check_video_output_dir) {
+			croak "ERROR: Missing video output directory - $check_video_output_dir";
+		}
+		
+		### Loop through the input directotries to check against them
+		for my $compare_input_dir_to_video_dir (@{$self->input_root_dirs}) {
+			if($check_video_output_dir =~ m{^$compare_input_dir_to_video_dir}) {
+				croak sprintf("ERROR: Invalid video_output_root_dir defined (%s). Can't be inside an 'input_root_dir'", $check_video_output_dir);
+			}
+		}
+		
+		say "Verified dir: $check_video_output_dir";
+	}
+	
+	
+	### loop through the input directories and make sure none are inside outputs
+	for my $check_input_dir (@{$self->input_root_dirs}) {
+		
+		### check against every output dir
+		for my $compare_photo_output_dir (@{$self->photo_output_root_dirs}) {
+			if($check_input_dir =~ m{^$compare_photo_output_dir}) {
+				croak sprintf("ERROR: Invalid input_root_dir defined (%s). Can't be inside an 'photo_output_root_dir'", $check_input_dir);
+			}
+		}
+	}
+	
+}
+
+
+
+################################################################################
+=head2 import_dirs
+
+Used to pull in the values from the config file, make sure they are arrays,
+and assign them locally.
+
+=cut
+################################################################################
+
+sub import_dirs {
+
+	my ($self) = @_;
+	
+	
+	### Croak if .ini is missing "input_root_dir"
+	if(!defined($self->f->config->{input_root_dir})) {
+		croak "Missing input_root_dir in .ini file";
+	}
+	
+	### If "input_root_dir" is already an array just copy it over
+	elsif( (ref $self->f->config->{input_root_dir}) eq "ARRAY") {
+		$self->set_input_root_dirs($self->f->config->{input_root_dir});
+	}
+	### Otherwise, convert it.
+	else {
+		$self->set_input_root_dirs( [$self->f->config->{input_root_dir} ]);
+	}
+	
+	
+	### Setup a counter for the number of input directories found
+	my $input_dir_counter = 0;
+	
+	### Loop over the array of input directories and make sure exactly one exists
+	for my $check_input_dir_path (@{$self->input_root_dirs}) {
+		if(-d $check_input_dir_path) {
+			$input_dir_counter ++;
+		}
+	}
+	
+	### Croak if you haven't found an input directory;
+	if($input_dir_counter == 0) {
+		croak "No available input directories found. Searched in:\n  " . join("\n  ", @{$self->input_root_dirs});
+	}
+	
+	if($input_dir_counter > 1) {
+		croak "Too many input directories found. Searched in:\n  " . join("\n  ", @{$self->input_root_dirs});
+	}
+	
+
+
+	### Croak if .ini is missing "photo_output_root_dir"
+	if(!defined($self->f->config->{photo_output_root_dir})) {
+		croak "Missing photo_output_root_dir in .ini file";
+	}
+	### If "photo_output_root_dir" is already an array just copy it over
+	elsif( (ref $self->f->config->{photo_output_root_dir}) eq "ARRAY") {
+		$self->set_photo_output_root_dirs($self->f->config->{photo_output_root_dir});
+	}
+	### Otherwise, convert it.
+	else {
+		$self->set_photo_output_root_dirs( [$self->f->config->{photo_output_root_dir} ]);
+	}
+
+
+	### Croak if .ini is missing "video_output_root_dir"
+	if(!defined($self->f->config->{video_output_root_dir})) {
+		croak "Missing video_output_root_dir in .ini file";
+	}
+	### If "video_output_root_dir" is already an array just copy it over
+	elsif( (ref $self->f->config->{video_output_root_dir}) eq "ARRAY") {
+		$self->set_video_output_root_dirs($self->f->config->{video_output_root_dir});
+	}
+	### Otherwise, convert it.
+	else {
+		$self->set_video_output_root_dirs( [$self->f->config->{video_output_root_dir} ]);
+	}
+	
+	
+	### Now, setup the counters.
+	for my $photo_counter_to_add (@{$self->photo_output_root_dirs}) {
+		$self->counters->{$photo_counter_to_add}->{copied} = 0;
+		$self->counters->{$photo_counter_to_add}->{skipped_duplicates} = 0;
+		$self->counters->{$photo_counter_to_add}->{missing_datetime} = 0;	
+	}
+	
+	for my $video_counter_to_add (@{$self->video_output_root_dirs}) {
+		$self->counters->{$video_counter_to_add}->{copied} = 0;
+		$self->counters->{$video_counter_to_add}->{skipped_duplicates} = 0;
+		$self->counters->{$video_counter_to_add}->{missing_datetime} = 0;
+	}
+	
+}
+
+
+
+
+################################################################################
+=head2 verify_framework_version
+
+Used to make sure that you know which version of the framework you 
+are using.
+
+=cut
+################################################################################
+
+sub verify_framework_version {
+
+	my ($self) = @_;
+	
+	if( $self->f->VERSION ne $self->required_framework_version) {
+		croak sprintf("Invalid framework version. Found: %s - Need: %s", $self->f->VERSION, $self->required_framework_version);
+	}
+
+}
+
+
+__PACKAGE__->meta->make_immutable;
+
+
+1;
+
+
+
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+
+package AWSTools::Framework;
+
+our $VERSION = "2.0901";
+$VERSION = eval $VERSION;
+
+
+################################################################################
+# POD Documentation
+################################################################################
+
+=head1 NAME
+
+AWSTools::Framework - Basic Framework for setup, logging and debugging.
+
+=head1 DESCRIPTION
+
+Basic framework module.
+
+
+=head1 SYNOPSIS
+
+  use AWSTools::Framework;
+  my $f = AWSTools::Framework->new();
+
+
+=head1 USAGE
+
+	use AWSTools::Framework;
+	my $f = AWSTools::Framework->new();
+	
+	# or
+	
+	use AWSTools::Framework;
+	my $f = AWSTools::Framework->new( valid_args => ['runonce', 'somestring=s']);
+	
+	The 'valid_args' allows you to pass items that should be allowed by GetOptLong. They will
+	be added to the $self->f->config->{} hash in the parent script.
+	
+
+=head1 BUGS
+
+
+
+=head1 SUPPORT
+
+
+
+=head1 AUTHOR
+
+    Alan W. Smith
+    http://www.alanwsmith.com/
+
+
+=head1 SEE ALSO
+
+perl(1).
+
+=cut
+
+################################################################################
+
+
+
+
+
+################################################################################
+# Make calls
+################################################################################
+
+use Moose;
+use MooseX::StrictConstructor;
+use MooseX::SemiAffordanceAccessor;
+use namespace::autoclean;
+use Carp;
+use FindBin qw($Bin);
+use YAML::XS;
+use Log::Log4perl qw(get_logger :levels);
+use Cwd;
+use Time::Piece;
+use File::Path qw(make_path remove_tree);
+
+################################################################################
+# Define Attributes
+################################################################################
+
+
+### Define the script directory for easy access.
+has 'script_dir' => (
+	is => "ro",
+	isa => "Str",
+	default => $Bin,
+);
+
+
+### Setup the path to the log directory.
+has 'logs_dir_path' => (
+	is =>'rw',
+	isa => 'Str',
+	default => sprintf("%s/log", $Bin),
+);
+
+
+### Flag to toggle debugging.
+has 'debug_flag' => (
+	is => 'rw',
+	isa => 'Bool',
+);
+
+
+### Name of the ini file to use.
+has 'ini_file' => (
+	is => 'rw',
+	isa => 'Str',
+);
+
+
+### Flag to determine if an ini file should be loaded.
+has 'skip_ini' => (
+	is => 'ro',
+	isa => "Bool",
+	default => 0,
+);
+
+
+### Setup an attribute to hold the time when the object was created
+has 'created_at' => (
+	is => 'ro',
+	isa => 'Int',
+	default => time(),
+);
+
+
+### Attribute to hold data from an ini file
+has 'config' => (
+	is => 'rw',
+	isa => 'HashRef',
+	default => sub {{}},
+);
+
+
+### Setup the ini file replacement strings
+has 'ini_replacements' => (
+	is => 'rw',
+	isa => 'HashRef',
+	default => sub {{}},
+);
+
+
+### String to hold the logger setup.
+has 'logger_ini_string' => (
+	is => 'rw',
+	isa => 'Str',
+);
+
+
+### Create an attribute to hold the logger object
+has 'log' => (
+	is => 'rw',
+	isa => 'Log::Log4perl::Logger',
+);
+
+
+### Setup the log_level and assign a default
+has 'log_level' => (
+	is => 'rw',
+	isa => 'Str',
+	default => 'ErrorLogger::WithInfoLogger',
+);
+
+
+### Private variable to hold the scripts start time
+has "_script_start_time_int" => (
+	is => "ro",
+	isa => "Int",
+	default => time(),
+	init_arg => undef,
+);
+
+
+### Setup default input and output data directories
+has "data_input" => (
+	is => "rw",
+	isa => "Str",
+	default => sprintf("%s/data-input", $Bin),
+);
+
+
+has "data_output" => (
+	is => "rw",
+	isa => "Str",
+	default => sprintf("%s/data-output", $Bin),
+);
+
+### Setup a hash for valid argumnets that can be passed in
+has 'valid_args' => (
+	is => "rw",
+	isa => 'ArrayRef',
+	default => sub {[]},
+);
+
+
+################################################################################
+# BUILD();
+################################################################################
+# This is called each time the framework is built and is used to do all
+# the various option loading and bootstrapping.
+################################################################################
+
+
+sub BUILD {
+	
+	my $self = shift;
+	
+	### Make a fresh copy of the @ARGV array so you don't mess with it directly
+	my @ARGVtmp = @ARGV;
+	
+	### Create a temp hash with default config options. This reads from items
+	### that are already set, or uses a default if not.
+	
+	my %tmpConfig = ( 
+		debug => $self->debug_flag ? $self->debug_flag : 0,
+		ini_file => $self->ini_file ? $self->ini_file : 'config.ini',
+	);
+	
+	
+	### Load the command line arguments via the tmp array
+	use Getopt::Long qw(GetOptionsFromArray);
+	GetOptionsFromArray(\@ARGVtmp, \%tmpConfig, 'debug', 'ini_file=s', @{$self->valid_args}) || die "Invalid argument.";
+	
+	### Update the main debug
+	$self->set_debug_flag($tmpConfig{debug});
+	
+	### setup the replacment strings so they only have to be 
+	### defined one time as part of the object.
+	$self->setup_ini_replacement_strings();
+	
+	### See if you should skip the ini file.
+	if($self->skip_ini) {
+		### Prevent it from moving into the config.
+		delete($tmpConfig{ini_file});
+	}
+	### Otherwise, load it
+	else {
+		
+		### Set it based on the current pointer.
+		$self->set_ini_file($tmpConfig{ini_file});
+		
+		### Call the load ini sub
+		$self->load_ini_file();		
+	}
+	
+
+	
+	### Loop over the tmpConfig items and update the actual config with it
+	for my $update_config_item (keys %tmpConfig) {
+		$self->config->{$update_config_item} = $tmpConfig{$update_config_item};
+	}
+	
+	
+	### Make sure the logs directory exists
+	$self->verify_dir_exists($self->logs_dir_path);
+	
+	### Setup the logger ini string
+	$self->setup_default_logger_ini_string();
+	
+	
+	### Initialize and setup the logger
+	Log::Log4perl->init(\$self->logger_ini_string);
+	
+	### If debugging is requested, update teh log_level
+	if($self->debug_flag) {
+		$self->set_log_level("ErrorLogger::WithInfoLogger::WithDebugger");
+	}
+	
+	### Load the logger with the requested log_level
+	$self->set_log(Log::Log4perl->get_logger( $self->log_level ));
+	
+	
+}
+
+
+
+################################################################################
+# load_config
+################################################################################
+# This is what loads in the ini file. Once it has it, it kicks of the process
+# to update the values in the hash with the standard find and replace switches.
+################################################################################
+
+
+sub load_ini_file {
+	
+	### pull in the object reference
+	my $self = shift;
+	
+	### Note that you are currently doubling up on the check for the skip_ini flag.
+	### That's okay, but eventually can be removed. 
+	
+	### only proceed if you aren't suppsed to skip the ini file load
+	if(!$self->skip_ini) {
+		
+		### Make sure that the requested ini_file exists
+		if(!-e $self->ini_file) {
+			croak "Missing ini_file: " . $self->ini_file;
+		}
+		
+		else {
+			use Config::General;
+			
+			my $conf = new Config::General($self->ini_file);
+			
+			$self->set_config({ $conf->getall });
+			
+			$self->do_ini_replacements($self->config);
+			
+			### See if you need to update the debugging flag.
+			if(defined($self->config->{debug}) && $self->config->{debug}) {
+				$self->set_debug_flag(1);
+			}	
+		}	
+	}
+}
+
+
+################################################################################
+=head2 verify_config_options_exist
+
+Takes an array reference. Make sure that all the items in the array
+ref exist in the config file. It is only used for top level checks. It 
+can't decend at this point.
+
+=cut
+################################################################################
+
+sub verify_config_options_exist {
+
+	my ($self, $options_array_ref) = @_;
+
+	### Croak if you don't get an array ref
+	if(!defined($options_array_ref) || ((ref $options_array_ref) ne 'ARRAY') ) {
+		croak "You must pass an arrayRef to verify_config_options_exist";
+	}
+	
+	### Otherwise, do the check
+	else {
+		for my $option_to_check (@{$options_array_ref}) {
+			
+			### Croak if it's missing
+			if( !defined($self->config->{$option_to_check}) ){
+				croak "ERROR: Missing required config option: $option_to_check in " . $self->ini_file;
+			}
+		}
+	}
+}
+
+
+
+
+################################################################################
+# setup_default_logger_ini_string()
+################################################################################
+# Used to setup the logger_ini_string with defaults. 
+#
+# The root level of the logger is left empty. This is so that you can call
+# that and effectively turn off all logging output. 
+#
+# The basic levels of the logging are:
+#
+# "ErrorLogger" - This will just log ERROR and FATAL messages to the dialy 
+# error .log file. The reason this is split out from ErrorLogger::WithInfoLogger
+# is so that level can write to multiple files. This is done using the built in
+# bubble up feature of log4perl.
+#
+# "ErrorLogger::WithInfoLogger" - The is the default. It logs everythign except
+# DEBUG to the daily .log file and ERROR and FATAL to the dialy error file. 
+#
+# "ErrorLogger.WithInfoLogger.WithDebugger" - This is the debugging level. It
+# does all the same outputs as above, but also creates a stand alone "debug.log"
+# file. Any DEBUG level messages are sent to that as well as to the command line
+# output. (STDOUT, not STDERR).
+################################################################################
+
+
+sub setup_default_logger_ini_string {
+	
+	### pull in the object. 
+	my ($self) = @_;
+	
+	
+	### Figure out the day of the week. 
+	my @day_array = qw (sunday monday tuesday wednesday thursday friday saturday);
+	my $day_string = $day_array[ (localtime())[6] ];
+	
+	### setup a full output log path
+	my $log_file_path = sprintf("%s/log-%s.log", $self->logs_dir_path, $day_string);
+	my $error_file_path = sprintf("%s/errors-%s.log", $self->logs_dir_path, $day_string);
+	my $debug_file_path = sprintf("%s/debug.log", $self->logs_dir_path, $day_string);
+	
+	### Update the logger_ini_string
+	my $tmpString = <<EOP;
+log4perl.category.ErrorLogger=ERROR, ERRORFILE
+
+log4perl.category.ErrorLogger.WithInfoLogger = INFO, LOGFILE
+
+log4perl.category.ErrorLogger.WithInfoLogger.WithDebugger = DEBUG, DEBUGFILE, DEBUGSCREEN
+
+log4perl.appender.LOGFILE=Log::Log4perl::Appender::File
+log4perl.appender.LOGFILE.filename=$log_file_path
+log4perl.appender.LOGFILE.mode=append
+log4perl.appender.LOGFILE.layout=PatternLayout
+log4perl.appender.LOGFILE.layout.ConversionPattern={ "timestamp": "%d{yyyy-MM-ddTHH:mm:ss}", "type": "%p", "msg": "%m", "file": "%F", "line": "%L" }%n
+log4perl.appender.LOGFILE.Threshold=INFO
+
+log4perl.appender.ERRORFILE=Log::Log4perl::Appender::File
+log4perl.appender.ERRORFILE.filename=$error_file_path
+log4perl.appender.ERRORFILE.mode=append
+log4perl.appender.ERRORFILE.layout=PatternLayout
+log4perl.appender.ERRORFILE.layout.ConversionPattern={ "timestamp": "%d{yyyy-MM-ddTHH:mm:ss}", "type": "%p", "msg": "%m", "file": "%F", "line": "%L" }%n
+log4perl.appender.ERRORFILE.Threshold=ERROR
+
+log4perl.appender.DEBUGFILE=Log::Log4perl::Appender::File
+log4perl.appender.DEBUGFILE.filename=$debug_file_path
+log4perl.appender.DEBUGFILE.mode=append
+log4perl.appender.DEBUGFILE.layout=PatternLayout
+log4perl.appender.DEBUGFILE.layout.ConversionPattern={ "timestamp": "%d{yyyy-MM-ddTHH:mm:ss}", "type": "%p", "msg": "%m", "file": "%F", "line": "%L" }%n
+
+EOP
+
+
+### If you are in a test file, print a comment before logging to the screen
+if($Bin =~ m{\.t$}) {
+	$tmpString .= <<EOP;
+log4perl.appender.DEBUGSCREEN=Log::Dispatch::Screen
+log4perl.appender.DEBUGSCREEN.stderr=0
+log4perl.appender.DEBUGSCREEN.layout=PatternLayout
+log4perl.appender.DEBUGSCREEN.layout.ConversionPattern=# %p: %m - FILE: %F line: %L %n
+EOP
+}
+
+### Otherwise, just print directly
+else {
+	$tmpString .= <<EOP;
+log4perl.appender.DEBUGSCREEN=Log::Dispatch::Screen
+log4perl.appender.DEBUGSCREEN.stderr=0
+log4perl.appender.DEBUGSCREEN.layout=PatternLayout
+log4perl.appender.DEBUGSCREEN.layout.ConversionPattern=# %p: %m - FILE: %F line: %L %n
+EOP
+}
+
+
+	$self->set_logger_ini_string($tmpString);
+
+}
+
+
+
+
+
+################################################################################
+# setup_ini_replacement_strings()
+################################################################################
+# This is what loads the up the 'ini_replacement_strings' HashRef attribute
+################################################################################
+
+
+sub setup_ini_replacement_strings {
+	
+	### Load the object 
+	my $self = shift;
+	
+	### load up a set of date time vars based on the object creation
+	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime( $self->created_at);
+
+	$mon++;
+	$year += 1900;
+	
+	$self->set_ini_replacements({
+			SCRIPTDIR => $FindBin::Bin,
+			YEAR => $year,
+			MONTH => $mon,
+			DAY => $mday,
+			HOUR => $hour,
+			MIN => $min,
+			SEC => $sec,
+	});
+	
+	
+}
+
+
+################################################################################
+# do_ini_replacements
+################################################################################
+# This is the sub that updates the various items in the config file paths
+# to make basic substitutions. 
+################################################################################
+
+
+
+sub do_ini_replacements {
+	
+	my $self = shift;
+	
+	my $hash_ref_to_update = shift;
+	
+	### Loop thorugh the keys
+	for my $check_key (keys %{$hash_ref_to_update}) {
+		
+		### If it's a hash, send it on
+		if( (ref $hash_ref_to_update->{$check_key}) eq ref {}) {
+			$self->do_ini_replacements($hash_ref_to_update->{$check_key});
+		}
+		
+		### If it's an array, process each item
+		elsif( (ref $hash_ref_to_update->{$check_key}) eq ref [] ) {
+			
+			for (my $i=0; $i<=$#{$hash_ref_to_update->{$check_key}}; $i++) {
+				$hash_ref_to_update->{$check_key}->[$i] = $self->run_ini_replacements($hash_ref_to_update->{$check_key}->[$i]);
+			}
+		}
+		else {
+			$hash_ref_to_update->{$check_key} = $self->run_ini_replacements($hash_ref_to_update->{$check_key});
+		}	
+	}
+}
+
+
+
+################################################################################
+=head2 run_ini_replacements
+
+This updates the individaul values and returns them.
+
+=cut
+################################################################################
+
+sub run_ini_replacements {
+
+	my ($self, $value_to_update) = @_;
+	
+	for my $replacement_key (keys %{$self->ini_replacements}) {
+		
+		my $replacement_value = $self->ini_replacements->{$replacement_key};
+		
+		$value_to_update =~ s{ \! $replacement_key \! } {$replacement_value}xms;
+		
+	}
+	return $value_to_update;	
+}
+
+
+
+
+
+
+################################################################################
+# verify_dir_exists(PATH)
+################################################################################
+# This function takes a directory path and looks to make sure the directory is
+# there. If not it tries to create it. If that doesn't work, it croaks. The
+# assumption is that this will only be called for directories that have 
+# to exist for the main script to run sucessfully. 
+################################################################################
+
+sub verify_dir_exists {
+	
+	### Croak if no arguments were passed
+	croak "No arguments passed to verify_dir_exists" if !defined($_[1]);
+	
+	
+	### Pull in the directory path to work with.
+	my ($self, $dir_path) = @_;
+	
+	
+	### First, check to see if the path is missing
+	if(!-e $dir_path) {
+		
+		if(make_path($dir_path)) {
+			
+			my $set_mode = 0775;
+			chmod $set_mode, $dir_path;
+			
+			return 1;
+		}
+		
+		### There is no need to put an else here. If make_path doesn't succeed, it croaks. 
+		
+		
+	}
+	
+	### Otherwise, something already exists, so you need to look at it
+	else {
+		
+		### If it's a directory, your done. Just return true
+		if(-d $dir_path) {
+			return 1;
+		}
+		
+		### If it's not a directory, you need to croak.
+		else {
+			croak "Won't overwrite a file with a directory at: " . $dir_path;
+		}
+	
+	}
+
+}
+
+
+
+################################################################################
+
+=head2 slurp_file(FILEPATH [, ALLOW_MISSING_FILES])
+
+This method is designed to read the contents of a file and return it as a
+stiring. It takes one required argument, which is a path to the file
+to read. If there is no file at that path, or if it can't be opened and read,
+a "croak" exception will be thrown.
+
+A second optional argument may be passed which is to allow for missing files.
+If that flag is set to true and the requested file path doesn't exist or
+can't be read, an empty string will be returned. 
+
+
+=cut 
+
+################################################################################
+
+
+sub slurp_file {
+	
+	### Croak if you don't get the right number of arguments
+	croak "Incorrect number of arguments passed to slurp_file. Needs 2." unless @_ == 2;
+	
+	### Pull in the arguments
+	my ($self, $file_path_to_slurp) = @_;
+	
+	### Croak if the file doesn't exist
+	unless (-e $file_path_to_slurp) { croak "File does not exist at: $file_path_to_slurp"; }
+	
+	### open the file or croak
+	open (my $slurlp_file_handle, "<", $file_path_to_slurp) || croak "Can not open file for reading: $file_path_to_slurp";
+	
+	### slurp up the data
+	my $slurp_data = do { local $/; <$slurlp_file_handle> };
+	
+	### close the file handle
+	close $slurlp_file_handle;
+		
+	### return the slurped up data.
+	return $slurp_data;
+	
+}
+
+
+
+################################################################################
+=head2 write_file
+
+Used to write out a file to disk
+
+Takes one arguemnt which is a hashref. The hash ref must have the following
+required keys:
+
+	- file = file path to write to, either relative to where it was called, or
+	from the document root. 
+	
+	- data = The string to write to the file. 
+	
+
+=cut
+################################################################################
+
+
+sub write_file {
+	
+	################################################################################
+	# Validation configuration.
+	
+	### define a method_name var to make error messages easier
+	my $method_name = "write_file";
+	
+	### define the keys
+	my %valid_hash_keys = (
+		
+		data => {
+			is_required => 1,
+			prevent_empty => 0,
+		},
+		
+		file => {
+			is_required => 1,
+			prevent_empty => 1,
+		},
+
+		do_append => {
+			is_required => 0,
+			prevent_empty => 0,
+		},
+		
+	);
+
+	
+	################################################################################
+	### Initial load in
+	################################################################################
+	
+	### Choke if too many arguments passed
+	croak "Too many arguments passed to $method_name()" if @_ > 2;
+	
+	### Make sure you got an argument (in addition to the obj self reference)
+	unless(@_ == 2) { croak "No arguments passed to $method_name(). Expected a hashref."; }
+	
+	### pull in the arguments
+	my ($self, $arg_hash_ref) = @_;
+	
+	
+	################################################################################
+	# Run the validation. You shouldn't have to edit this.
+	################################################################################
+	
+	VALIDATION: {
+	
+		### Do a simple check to make sure you are getting a hash ref
+		unless (ref ($arg_hash_ref) eq "HASH") {
+			croak "Argument to $method_name() must be a hash.";
+		}	
+		
+		### Loop through the valid hash keys
+		for my $valid_hash_key (keys %valid_hash_keys) {
+			
+			### See if it's required
+			if($valid_hash_keys{$valid_hash_key}{'is_required'}) {
+				
+				### croak if you can't find it.
+				if( !defined($arg_hash_ref->{ $valid_hash_key }) ) {
+					croak "Missing required key '" . $valid_hash_key . "' for $method_name().";
+				}
+				
+				### Check to see if it is (and can be) empty.
+				elsif ( ($valid_hash_keys{$valid_hash_key}{'prevent_empty'}) && !$arg_hash_ref->{ $valid_hash_key } ) {
+					croak "The argument -$valid_hash_key- can not be empty for $method_name().";
+				}
+			}
+		}
+		
+		### now check to see if any invalid keys were sent
+		for my $check_argument_item (keys %{$arg_hash_ref}) {
+		
+			if( !defined( $valid_hash_keys{$check_argument_item}) ) {
+				croak "Invalid key -$check_argument_item- sent to $method_name()";
+			}	
+		}
+	}
+
+	################################################################################
+	# Validation complete, to the work of the method here
+	################################################################################
+	
+	
+
+	### If the file path isn't a full path, make it one
+	if( $arg_hash_ref->{"file"} !~ m{ ^ / }xms) {
+		my $cwd = getcwd();
+		$arg_hash_ref->{"file"} = sprintf("%s/%s", $cwd, $arg_hash_ref->{"file"});
+	}
+
+	
+	### Parse out the parent directory path for the file if it exists.
+	### Note that if you are writing to the root, as unwise as that may be
+	### this "if" statement would get tripped. 
+	
+	if( $arg_hash_ref->{"file"} =~ m{ ^ (.*) / }xms) {
+		
+		### pull in the directory path
+		my $target_directory = $1;
+		
+		### Check to see if the directory exists
+		if(-e $target_directory) {
+			### If so, make sure it's actually a directory
+			if(!-d $target_directory) {
+				croak "File exists where attempting to make a directory: $target_directory";
+			}
+		}
+		
+		### otherwise attempt to make it. Croaking if it doesn't work.
+		elsif(!make_path($target_directory)) {
+			croak "Could not make directory at: $target_directory";
+			
+			### Note that you probably don't need to croak here since make_path does
+			### automatically. 
+		}
+		
+	}
+	
+	
+	################################################################################
+	# Write or append the file based on what was requested
+	################################################################################
+	
+	### Append the file if that's what was reqeusted
+	if(defined($arg_hash_ref->{'do_append'}) && $arg_hash_ref->{'do_append'}) {
+		open my $OUTPUT_FILE_HANDLE, ">>", $arg_hash_ref->{'file'} or croak "Could not open file for writing: " . $arg_hash_ref->{'file'} . "\n";
+		print $OUTPUT_FILE_HANDLE $arg_hash_ref->{'data'};
+		close $OUTPUT_FILE_HANDLE;
+		
+		$self->log->info("Appended file: " . $arg_hash_ref->{'file'});
+		
+	}
+	
+	### Otherwise, just write/overwrite it using a .tmp file first. 
+	else {
+		
+		my $tmp_file_write_path = sprintf("%s.tmp", $arg_hash_ref->{'file'});
+	
+		open my $OUTPUT_FILE_HANDLE, ">", $tmp_file_write_path or croak "Could not open tmp file for writing: " . $tmp_file_write_path . "\n";
+		print $OUTPUT_FILE_HANDLE $arg_hash_ref->{'data'};
+		close $OUTPUT_FILE_HANDLE;
+		
+		if(rename($tmp_file_write_path, $arg_hash_ref->{'file'})) {
+			$self->log->info("Wrote to file: " . $arg_hash_ref->{'file'});
+		}
+		else {
+			croak "Could not copy .tmp file onto " . $arg_hash_ref->{'file'};
+		}
+	}
+	
+	
+	### return true to signify that everything worked
+	return 1;
+	
+}
+
+
+
+
+################################################################################
+=head2 append_file
+
+Used to call the write_file method with the optional do_append flag set.
+
+=cut
+################################################################################
+
+
+sub append_file {
+	
+	
+	################################################################################
+	# Validation configuration.
+	
+	### define a method_name var to make error messages easier
+	my $method_name = "append_file";
+	
+	### define the keys
+	my %valid_hash_keys = (
+		
+		data => {
+			is_required => 1,
+			prevent_empty => 0,
+		},
+		
+		file => {
+			is_required => 1,
+			prevent_empty => 1,
+		},
+		
+	);
+
+	
+	################################################################################
+	### Initial load in
+	################################################################################
+	
+	### Choke if too many arguments passed
+	croak "Too many arguments passed to $method_name()" if @_ > 2;
+	
+	### Make sure you got an argument (in addition to the obj self reference)
+	unless(@_ == 2) { croak "No arguments passed to $method_name(). Expected a hashref."; }
+	
+	### pull in the arguments
+	my ($self, $arg_hash_ref) = @_;
+
+	
+	################################################################################
+	# Run the validation. You shouldn't have to edit this.
+	################################################################################
+	
+	VALIDATION: {
+	
+		### Do a simple check to make sure you are getting a hash ref
+		unless (ref ($arg_hash_ref) eq "HASH") {
+			croak "Argument to $method_name() must be a hash.";
+		}	
+		
+		### Loop through the valid hash keys
+		for my $valid_hash_key (keys %valid_hash_keys) {
+			
+			### See if it's required
+			if($valid_hash_keys{$valid_hash_key}{'is_required'}) {
+				
+				### croak if you can't find it.
+				if( !defined($arg_hash_ref->{ $valid_hash_key }) ) {
+					croak "Missing required key '" . $valid_hash_key . "' for $method_name().";
+				}
+				
+				### Check to see if it is (and can be) empty.
+				elsif ( ($valid_hash_keys{$valid_hash_key}{'prevent_empty'}) && !$arg_hash_ref->{ $valid_hash_key } ) {
+					croak "The argument -$valid_hash_key- can not be empty for $method_name().";
+				}
+			}
+		}
+		
+		### now check to see if any invalid keys were sent
+		for my $check_argument_item (keys %{$arg_hash_ref}) {
+		
+			if( !defined( $valid_hash_keys{$check_argument_item}) ) {
+				croak "Invalid key -$check_argument_item- sent to $method_name()";
+			}	
+		}
+	}
+
+	################################################################################
+	# Validation complete, to the work of the method here
+	################################################################################
+
+	
+	# Call write_file with the extra param
+	$self->write_file({ file => $arg_hash_ref->{'file'}, data => $arg_hash_ref->{'data'}, do_append => 1 });
+	
+	
+	
+	
+	################################################################################
+	# Return true to show that it worked
+	################################################################################
+	
+	
+	return 1;
+	
+}
+
+
+
+################################################################################
+=head2 get_script_startup_time
+
+Takes one optional argument. This is the Time::Piece formatting string. 
+
+If no argument is received, a default ISO 8661 datetime is used.
+
+The value returned is the time the script started in the appropriate format
+
+TODO: Update so that if an invalid formatter is used YYYYMMDDhhmmss is returned.
+
+
+=cut
+################################################################################
+
+sub get_script_startup_time {
+
+	my ($self, $reqeusted_datetime_format) = @_;
+	
+	my $script_time_piece = localtime($self->_script_start_time_int);
+	
+	my $script_time_iso_datetime = $script_time_piece->datetime();
+	
+	return $script_time_iso_datetime;
+	
+}
+
+
+
+
+################################################################################
+# Close out the package
+################################################################################
+
+
+__PACKAGE__->meta->make_immutable;
+
+1;
+
+
+
+
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+
+
+
+
+package main;
+
+use YAML::XS;
+use FindBin qw ($Bin);
+
+run_main() unless caller();
+
+sub run_main {
+	
+	### Show which version you are on and sleep for a second so you can actually see it
+	say sprintf("Starting ImportPhotos (v %s)", $SCRIPT_VERSION_HOLD);
+	sleep(2);
+	
+	### Make sure you aren't in the dev environment by looking for kill file.
+	if(-e sprintf("%s/do-not-run.txt", $Bin)) {
+		say "Killing attempt to run directly in dev environment.";
+	}
+	
+	### Otherwise, process as normal
+	else {
+		
+	
+		my $mvr_obj = ImportPhotos->new();
+		
+		$mvr_obj->copy_photos_to_destinations();
+	
+		say "File Report: ";
+		print Dump $mvr_obj->counters;
+	
+	
+		say "Process complete.";
+		
+	}
+	
+}
+
+
+1;

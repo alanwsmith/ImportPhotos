@@ -1,0 +1,7 @@
+This is a file that should only exist in the development environment. It 
+keeps the ImportPhotos script from running if called directly. This is
+done because the script would otherwise call the 
+~/Library/ImportPhotos/ImportPhotos.ini file and run an actual process. 
+
+With this file in place, the main script will see it and exist out. 
+

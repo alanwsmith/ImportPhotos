@@ -1,0 +1,17 @@
+---
+BitDepth: 8
+ColorType: RGB with Alpha
+Compression: Deflate/Inflate
+Directory: /Users/alans/development/ImportPhotos/t/sample-data-input/m/input_root_a
+ExifToolVersion: '8.77'
+FileModifyDate: 2011:05:11 08:02:01-04:00
+FileName: aws-20100128x01200400-01.png
+FilePermissions: rwx------
+FileSize: 56 kB
+FileType: PNG
+Filter: Adaptive
+ImageHeight: 480
+ImageSize: 320x480
+ImageWidth: 320
+Interlace: Noninterlaced
+MIMEType: image/png
